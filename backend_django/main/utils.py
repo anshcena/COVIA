@@ -2,14 +2,13 @@ import requests
 from bs4 import BeautifulSoup
 from cache_memoize import cache_memoize
 from .models import IndiaCasesTableModel, MythsWHOModel
-from django.db import IntegrityError
 
 
-def save_in_db(model, data):
+async def save_in_db(model, data):
     try:
         obj = model(**data)
         obj.save()
-    except IntegrityError as e:
+    except Exception as e:
         pass
 
 

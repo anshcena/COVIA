@@ -10,3 +10,6 @@
 /frontend_ionic/platforms
 /frontend_ionic/plugins
 /frontend_ionic/www
+
+
+/backend_django/credentials.py
