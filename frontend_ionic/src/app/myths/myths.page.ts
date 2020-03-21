@@ -1,4 +1,6 @@
+import { AppComponent } from './../app.component';
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-myths',
@@ -7,9 +9,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MythsPage implements OnInit {
 
-  constructor() { }
+  title = []
+  image = []
+
+  constructor(private http: HttpClient) { }
 
   ngOnInit() {
+    this.fetchMyths();
+  }
+
+  fetchMyths() {
+    this.http.get(AppComponent.base + 'myths').subscribe((res) => {
+      if (res['status']) {
+        this.title = res['data']['title']
+        this.image = res['data']['src']
+      } else {
+
+      }
+    }, (error) => {
+      console.log(error)
+    });
   }
 
 }
