@@ -1,1 +1,12 @@
+/frontend_ionic/.idea
+/frontend_ionic/.ionic
+/frontend_ionic/.sass-cache
+/frontend_ionic/.sourcemaps
+/frontend_ionic/.versions
+/frontend_ionic/.vscode
+/frontend_ionic/coverage
+/frontend_ionic/dist
 /frontend_ionic/node_modules
+/frontend_ionic/platforms
+/frontend_ionic/plugins
+/frontend_ionic/www
