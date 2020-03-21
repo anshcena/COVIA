@@ -1,0 +1,10 @@
+.devices {
+    display: none;
+}
+@media (min-width: 768px) {
+    .devices {
+        display: flex;
+        flex-direction: row;
+        display: block;
+    }
+}

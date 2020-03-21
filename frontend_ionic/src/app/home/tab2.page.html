@@ -1,5 +1,4 @@
-
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
     <ion-title>
       Home
@@ -14,8 +13,7 @@
     <h1 class="covia-title">COVIA</h1>
     <h2 class="covia-subtitle">Corona Virus Alert app containing informative real data of the outburst.</h2>
   <div class="covia-buttons">
-    <ion-button  color="success"><a href="https://anshajofficial.typeform.com/to/Q6jm5p"
-      target="_blank">Questionnaire</a></ion-button>
+    <ion-button  color="success" (click)="questionSection()">Questionnaire</ion-button>
     <ion-button color="dark">
       <a href="https://bing.com/covid"target="_blank">Track Cases</a>
     </ion-button>
@@ -34,7 +32,7 @@
       </a>
   </div>
   <div class="">
-    <h2 class="covia-footer-title">Indian region updates from <a class="mhfw" href="">Ministry of Health and Family Welfare</a>.</h2>
+    <h2 class="covia-footer-title">Indian region updates from <a class="mhfw" href="https://www.mohfw.gov.in/">Ministry of Health and Family Welfare</a>.</h2>
   </div>
 </div>
 </ion-content>  

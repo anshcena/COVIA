@@ -1,3 +1,4 @@
+import { MythsPageModule } from './../myths/myths.module';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TabsPage } from './tabs.page';
@@ -34,6 +35,16 @@ const routes: Routes = [
             path: '',
             loadChildren: () =>
               import('../care/tab3.module').then(m => m.Tab3PageModule)
+          }
+        ]
+      },
+      {
+        path: 'myths',
+        children: [
+          {
+            path: '',
+            loadChildren: () => 
+            import('../myths/myths.module').then(m => m.MythsPageModule)
           }
         ]
       },
