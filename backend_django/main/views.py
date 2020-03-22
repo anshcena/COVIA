@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
-from main.utils import get_who_myths, get_table_india, get_india_meta_data
+from main.utils import get_who_myths, get_table_india, get_india_meta_data, get_awarness_links
 
 
 def home(request):
@@ -27,7 +27,22 @@ def live_india_data(request):
         data = {}
         data['table'] = get_table_india("https://www.mohfw.gov.in/")
         data['meta'] = get_india_meta_data("https://www.mohfw.gov.in/")
+        return JsonResponse({
+            "status": True,
+            "data": data
+        })
+    except Exception as e:
+        print(str(e))
+        return JsonResponse({
+            "status": False
+        })
 
+
+
+def awareness_link_data(request):
+    try:
+        data = {}
+        data = get_awarness_links("https://www.mohfw.gov.in/awareness.html")
         return JsonResponse({
             "status": True,
             "data": data
