@@ -80,7 +80,10 @@ def get_india_meta_data(link):
             'text':     table_row.div.div.text,
             'src': 'https://www.mohfw.gov.in/' + str(table_row.img.src)
         })
-      
+
+    for i in data['meta']:
+        if '*' in i['text']:
+            data['meta'][data['meta'].index(i)]['text'] = 'Total confirmed cases'
     
     # save data in db
     save_in_db(IndiaMetaModel,{'meta': data})
