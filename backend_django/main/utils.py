@@ -68,14 +68,19 @@ def get_who_myths(link):
 
 @cache_memoize(300)
 def get_india_meta_data(link):
-    data = []
+    data = {'meta':[]}
     URL = link
     r = requests.get(URL) 
 
     soup = BeautifulSoup(r.content, 'html5lib') 
     table = soup.find('div', attrs = {'class':'information_row'})
     for table_row in table.findAll('div', attrs = {'class':'iblock'}):
-        data.append(table_row.div.text)
+        data['meta'].append({
+           'count': table_row.div.span.text,
+            'text':     table_row.div.div.text,
+            'src': 'https://www.mohfw.gov.in/' + str(table_row.img.src)
+        })
+        d
     
     # save data in db
     save_in_db(IndiaMetaModel,{'meta': data})
