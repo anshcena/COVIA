@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Myths</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="title.length == 0">
+
+    <ion-card *ngFor="let card of [1,2,3,4,5]" style="height: 200px;">
+      <ion-card-header style="height: 50px;">
+        <ion-card-title >
+          <ion-skeleton-text animated></ion-skeleton-text>
+        </ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content style="height: 125px;">
+        <ion-skeleton-text animated></ion-skeleton-text>
+      </ion-card-content>
+    </ion-card>
+  
+  </div>
+
+
+
+  <div *ngIf="title.length > 0">
+    <ion-card *ngFor="let t of title, let i=index">
+      <ion-card-header>
+        <ion-card-title>{{t}}</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+      <img src={{image[i]}}>
+      </ion-card-content>
+    </ion-card>
+    <h2 class="ion-text-center">Source: WHO</h2>
+  </div>
+        
+
+</ion-content>
