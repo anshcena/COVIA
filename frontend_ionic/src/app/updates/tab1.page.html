@@ -1,4 +1,4 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
     <ion-title>
       Updates
@@ -6,7 +6,60 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  
+<ion-content>
+  <!-- <ion-grid>
+    <ion-row>
+      <ion-col size="2">
+        S.No
+      </ion-col>
+      <ion-col size="">
+        Name of states/ut
+      </ion-col>
+      <ion-col>
+        total confirm cases (indian)
+      </ion-col>
+      <ion-col>
+        total confirm cases (foreign)
+      </ion-col>
+      <ion-col>
+        cured/discharges
+      </ion-col>
+      <ion-col>
+        death
+      </ion-col>
+    </ion-row>
 
+    <ion-row>
+      <ion-col size="2">
+        S.No
+      </ion-col>
+      <ion-col size="">
+        Name of states/ut
+      </ion-col>
+      <ion-col>
+        total confirm cases (indian)
+      </ion-col>
+      <ion-col>
+        total confirm cases (foreign)
+      </ion-col>
+      <ion-col>
+        cured/discharges
+      </ion-col>
+      <ion-col>
+        death
+      </ion-col>
+    </ion-row>
+  
+  </ion-grid> -->
+  <div class="covia-table-flex">
+ <table class="covia-table">
+  <tr class="covia-table-row">
+    <th class="table-data data-width" *ngFor="let col of table_head">{{col}}</th>
+  </tr>
+    <tr class="covia-table-row"  *ngFor="let row of table_data">
+      <td colspan="1" class="table-data data-width" *ngFor="let col of row" >{{col}}</td>
+    </tr>
+  
+</table>
+</div>
 </ion-content>

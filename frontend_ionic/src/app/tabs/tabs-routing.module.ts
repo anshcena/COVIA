@@ -1,3 +1,4 @@
+import { InfoPageModule } from './../info/info.module';
 import { MythsPageModule } from './../myths/myths.module';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -39,12 +40,22 @@ const routes: Routes = [
         ]
       },
       {
-        path: 'myths',
+        path: 'info',
         children: [
           {
             path: '',
             loadChildren: () => 
-            import('../myths/myths.module').then(m => m.MythsPageModule)
+            import('../info/info.module').then(m => m.InfoPageModule)
+          }
+        ]
+      },
+      {
+        path: 'about',
+        children: [
+          {
+            path: '',
+            loadChildren: () => 
+            import('../about/about.module').then(m => m.AboutPageModule)
           }
         ]
       },
