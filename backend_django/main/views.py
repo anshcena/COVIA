@@ -13,7 +13,7 @@ def fetch_myths_who(request):
         print(data)
         return JsonResponse({
             "status": True,
-            "data": data
+            "data": data    
         }) 
     except Exception as e:
         print(str(e))
