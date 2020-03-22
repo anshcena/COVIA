@@ -68,22 +68,22 @@ def get_who_myths(link):
 
 @cache_memoize(300)
 def get_india_meta_data(link):
-    data = {'meta':[]}
+    data = []
     URL = link
     r = requests.get(URL) 
 
     soup = BeautifulSoup(r.content, 'html5lib') 
     table = soup.find('div', attrs = {'class':'information_row'})
     for table_row in table.findAll('div', attrs = {'class':'iblock'}):
-        data['meta'].append({
+        data.append({
            'count': table_row.div.span.text,
             'text':     table_row.div.div.text,
             'src': 'https://www.mohfw.gov.in/' + str(table_row.img.src)
         })
 
-    for i in data['meta']:
+    for i in data:
         if '*' in i['text']:
-            data['meta'][data['meta'].index(i)]['text'] = 'Total confirmed cases'
+            data[data.index(i)]['text'] = 'Total confirmed cases'
     
     # save data in db
     save_in_db(IndiaMetaModel,{'meta': data})
@@ -105,7 +105,7 @@ def get_awarness_links(link):
             'title': table_row.a.text
         })
 
-    #print(data)
+    print(data)
 
     hinEngData = {'hindi':[], 'english':[]} 
         
@@ -117,6 +117,6 @@ def get_awarness_links(link):
       
     # save data in db
     for d in data:
-        save_in_db(AwarenessDataModel,{'link': d['title'], 'src': d['src'], 'lang': 'hin' if d in hinEngData else 'eng'})
+        save_in_db(AwarenessDataModel,{'link': d['title'], 'src': d['src'], 'lang': 'hin' if d in hinEngData['hindi'] else 'eng'})
     return hinEngData
      

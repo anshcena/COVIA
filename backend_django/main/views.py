@@ -42,7 +42,7 @@ def live_india_data(request):
 def awareness_link_data(request):
     try:
         data = {}
-        data = get_awarness_links("https://www.mohfw.gov.in/awareness.html")
+        data['links'] = get_awarness_links("https://www.mohfw.gov.in/awareness.html")
         return JsonResponse({
             "status": True,
             "data": data
