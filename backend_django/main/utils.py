@@ -17,7 +17,7 @@ def get_table_india(link):
     URL = link
     r = requests.get(URL)
     soup = BeautifulSoup(r.content, 'html5lib')
-    table = soup.find('table', attrs = {'class':'table table-striped table-dark'})
+    table = soup.find('div', attrs = {'class':'content newtab'})
     output_rows = []
     for table_row in table.findAll('tr'):
         columns = table_row.findAll('th')
