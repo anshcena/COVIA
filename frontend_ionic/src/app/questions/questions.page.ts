@@ -80,7 +80,7 @@ export class QuestionsPage implements OnInit {
      for (var i=0; i<qs.length; i++) {
        console.log(qs)
        qs[i].setAttribute('color', 'light');
-       qs[i].style.color = "#fff";
+      //  qs[i].style.color = "#fff";
      }
      document.getElementById(ans+index).setAttribute('color', 'primary');
      document.getElementById(ans+index).style.color = "#136f61";
