@@ -8,5 +8,30 @@
 </ion-header>
 
 <ion-content>
+    <!-- <div style="margin-top: 62px;">
+      <img src="../../assets/icon/awareness.png" class="image" alt="symbolic image">
+      <h3 class="covia-title">Screening Test for COVID-19</h3>
+      <div class="btn-center">
+      <ion-button style="width: 176px;">Let's Start</ion-button>
+    </div>
+    </div> -->
+    <div class="questions-align">
+      <ion-card  *ngFor = "let ques of dict, let i=index;" >
+        <ion-card-content>
+      <h3 class="covia-questions">{{ques.question}}</h3>
+      <ion-input [(ngModel)]="ques.answer" *ngIf="ques.options.length == 0" placeholder="{{ques.placeholder}}"></ion-input>
+        <ion-grid>
+          <ion-row *ngFor = "let que of ques.options">
+            <ion-col>
+      <ion-button color="light" class="btn-block quest{{i}}"  id="{{que+i}}" (click)="setAns(i, que)">{{que}}</ion-button>
+    </ion-col>
+    </ion-row>
+        </ion-grid>
+    </ion-card-content>
+    </ion-card>
+    </div>
+    <div class="btn-center">
+      <ion-button (click)="submitQues()" >Submit</ion-button>
+    </div>
 
 </ion-content>
