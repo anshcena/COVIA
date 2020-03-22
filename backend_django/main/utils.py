@@ -1,7 +1,7 @@
 import requests 
 from bs4 import BeautifulSoup
 from cache_memoize import cache_memoize
-from .models import IndiaCasesTableModel, MythsWHOModel
+from .models import IndiaCasesTableModel, MythsWHOModel, IndiaMetaModel
 
 
 async def save_in_db(model, data):
@@ -63,3 +63,21 @@ def get_who_myths(link):
     for t, s in zip(data['title'], data['src']):
         save_in_db(MythsWHOModel, {'title': t, 'src': s})
     return data
+
+
+
+@cache_memoize(300)
+def get_india_meta_data(link):
+    data = []
+    URL = link
+    r = requests.get(URL) 
+
+    soup = BeautifulSoup(r.content, 'html5lib') 
+    table = soup.find('div', attrs = {'class':'information_row'})
+    for table_row in table.findAll('div', attrs = {'class':'iblock'}):
+        data.append(table_row.div.text)
+    
+    # save data in db
+    save_in_db(IndiaMetaModel,{'meta': data})
+    return data
+     

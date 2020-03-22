@@ -13,3 +13,8 @@ class MythsWHOModel(models.Model):
     timestamp = models.DateTimeField(default=timezone.now)
     class Meta:
         unique_together = ('title', 'src')
+
+
+class IndiaMetaModel(models.Model):
+    meta = models.TextField(unique=True)
+    timestamp = models.DateTimeField(default=timezone.now)
