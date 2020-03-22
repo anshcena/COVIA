@@ -78,7 +78,7 @@ def get_india_meta_data(link):
         data.append({
            'count': table_row.div.span.text,
             'text':     table_row.div.div.text,
-            'src': 'https://www.mohfw.gov.in/' + str(table_row.img.src)
+            'src': 'https://www.mohfw.gov.in/' + str(table_row.img['src'])
         })
 
     for i in data:
