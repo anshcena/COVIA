@@ -8,7 +8,7 @@
 <ion-grid>
   <ion-row>
     <ion-col *ngFor="let c of card_details" size="12" size-sm> 
-      <ion-card [style.backgroundColor]="c.color" (click)="mythPageRoute()">
+      <ion-card [style.backgroundColor]="c.color" (click)="mythPageRoute(c.route)">
            
         <ion-card-content>
          <img [src]="c.image" class="image" alt="myths-image">

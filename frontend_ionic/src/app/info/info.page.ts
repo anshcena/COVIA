@@ -9,7 +9,12 @@ export class InfoPage implements OnInit {
 
   card_details = [{
     "image": "../../assets/icon/myths.png",
-    "color": "#d9e1da"
+    "color": "#d9e1da",
+    "route": '/myths'
+  },{
+    "image": "../../assets/icon/awareness.png",
+    "color": "#d9e1da",
+    "route": '/awareness'
   }]
 
   constructor(private router: Router) { }
@@ -17,8 +22,8 @@ export class InfoPage implements OnInit {
   ngOnInit() {
   }
 
-  mythPageRoute() {
-    this.router.navigate(['/myths']);
+  mythPageRoute(route) {
+    this.router.navigate([route]);
   }
 
 }

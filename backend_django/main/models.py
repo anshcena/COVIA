@@ -18,3 +18,10 @@ class MythsWHOModel(models.Model):
 class IndiaMetaModel(models.Model):
     meta = models.TextField(unique=True)
     timestamp = models.DateTimeField(default=timezone.now)
+
+
+class AwarenessDataModel(models.Model):
+    link = models.URLField()
+    title = models.CharField(max_length=300)
+    lang = models.CharField(max_length=10)
+    timestamp = models.DateTimeField(default=timezone.now)

@@ -1,7 +1,7 @@
 import requests 
 from bs4 import BeautifulSoup
 from cache_memoize import cache_memoize
-from .models import IndiaCasesTableModel, MythsWHOModel, IndiaMetaModel
+from .models import IndiaCasesTableModel, MythsWHOModel, IndiaMetaModel, AwarenessDataModel
 
 
 async def save_in_db(model, data):
@@ -68,21 +68,55 @@ def get_who_myths(link):
 
 @cache_memoize(300)
 def get_india_meta_data(link):
-    data = {'meta':[]}
+    data = []
     URL = link
     r = requests.get(URL) 
 
     soup = BeautifulSoup(r.content, 'html5lib') 
     table = soup.find('div', attrs = {'class':'information_row'})
     for table_row in table.findAll('div', attrs = {'class':'iblock'}):
-        data['meta'].append({
+        data.append({
            'count': table_row.div.span.text,
             'text':     table_row.div.div.text,
-            'src': 'https://www.mohfw.gov.in/' + str(table_row.img.src)
+            'src': 'https://www.mohfw.gov.in/' + str(table_row.img['src'])
         })
-        d
+
+    for i in data:
+        if '*' in i['text']:
+            data[data.index(i)]['text'] = 'Total confirmed cases'
     
     # save data in db
     save_in_db(IndiaMetaModel,{'meta': data})
     return data
+
+@cache_memoize(300)
+def get_awarness_links(link):
+    URL = link
+    r = requests.get(URL) 
+
+    soup = BeautifulSoup(r.content, 'html5lib') 
+
+    data=[] # a list to store quotes 
+
+    table = soup.find('tbody', attrs = {'class':''})
+    for table_row in table.findAll('tr'):
+        data.append({
+            'src': table_row.a['href'],
+            'title': table_row.a.text
+        })
+
+    print(data)
+
+    hinEngData = {'hindi':[], 'english':[]} 
+        
+    for strin in data:
+        if 'Hin' in strin['title']:
+            hinEngData['hindi'].append(strin)
+        else:
+           hinEngData['english'].append(strin)
+      
+    # save data in db
+    for d in data:
+        save_in_db(AwarenessDataModel,{'link': d['title'], 'src': d['src'], 'lang': 'hin' if d in hinEngData['hindi'] else 'eng'})
+    return hinEngData
      
