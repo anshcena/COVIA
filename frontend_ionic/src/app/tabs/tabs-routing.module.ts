@@ -1,3 +1,5 @@
+import { InfoPageModule } from './../info/info.module';
+import { MythsPageModule } from './../myths/myths.module';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TabsPage } from './tabs.page';
@@ -34,6 +36,26 @@ const routes: Routes = [
             path: '',
             loadChildren: () =>
               import('../care/tab3.module').then(m => m.Tab3PageModule)
+          }
+        ]
+      },
+      {
+        path: 'info',
+        children: [
+          {
+            path: '',
+            loadChildren: () => 
+            import('../info/info.module').then(m => m.InfoPageModule)
+          }
+        ]
+      },
+      {
+        path: 'about',
+        children: [
+          {
+            path: '',
+            loadChildren: () => 
+            import('../about/about.module').then(m => m.AboutPageModule)
           }
         ]
       },

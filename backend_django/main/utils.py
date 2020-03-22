@@ -1,11 +1,23 @@
 import requests 
-from bs4 import BeautifulSoup 
+from bs4 import BeautifulSoup
+from cache_memoize import cache_memoize
+from .models import IndiaCasesTableModel, MythsWHOModel, IndiaMetaModel
 
+
+async def save_in_db(model, data):
+    try:
+        obj = model(**data)
+        obj.save()
+    except Exception as e:
+        pass
+
+
+@cache_memoize(300)
 def get_table_india(link):
     URL = link
     r = requests.get(URL)
     soup = BeautifulSoup(r.content, 'html5lib')
-    table = soup.find('table', attrs = {'class':'table table-striped table-dark'})
+    table = soup.find('div', attrs = {'class':'content newtab'})
     output_rows = []
     for table_row in table.findAll('tr'):
         columns = table_row.findAll('th')
@@ -31,9 +43,12 @@ def get_table_india(link):
     head = [head]
     head.append(output_rows)
 
+    # save data in db
+    save_in_db(IndiaCasesTableModel,{'table': head})
     return head
 
 
+@cache_memoize(300)
 def get_who_myths(link):
     data = {'title':[], 'src': []}
     URL = link
@@ -45,4 +60,29 @@ def get_who_myths(link):
             data['title'].append(row.text)
     for table_ro in table.findAll('div', attrs = {'class': 'list-view--item highlight-widget--content matching-height--item'}):
         data['src'].append(table_ro.a['href'])
+    for t, s in zip(data['title'], data['src']):
+        save_in_db(MythsWHOModel, {'title': t, 'src': s})
     return data
+
+
+
+@cache_memoize(300)
+def get_india_meta_data(link):
+    data = {'meta':[]}
+    URL = link
+    r = requests.get(URL) 
+
+    soup = BeautifulSoup(r.content, 'html5lib') 
+    table = soup.find('div', attrs = {'class':'information_row'})
+    for table_row in table.findAll('div', attrs = {'class':'iblock'}):
+        data['meta'].append({
+           'count': table_row.div.span.text,
+            'text':     table_row.div.div.text,
+            'src': 'https://www.mohfw.gov.in/' + str(table_row.img.src)
+        })
+        d
+    
+    # save data in db
+    save_in_db(IndiaMetaModel,{'meta': data})
+    return data
+     
