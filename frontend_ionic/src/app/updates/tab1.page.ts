@@ -11,7 +11,7 @@ export class Tab1Page {
 
   table_head = []
   table_data = []
-
+  meta = []
   constructor( private http: HttpClient) {}
 
   ngOnInit() {
@@ -24,6 +24,7 @@ export class Tab1Page {
         if (res['status']) {
         this.table_head = res['data']['table'][0]
         this.table_data = res['data']['table'][1]
+        this.meta = res['data']['meta']
       }
      }, (err) => {
        console.log(err)

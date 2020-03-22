@@ -20,6 +20,10 @@ const routes: Routes = [
   {
     path: 'about',
     loadChildren: () => import('./about/about.module').then( m => m.AboutPageModule)
+  },
+  {
+    path: 'awareness',
+    loadChildren: () => import('./awareness/awareness.module').then( m => m.AwarenessPageModule)
   }
 
 ];
