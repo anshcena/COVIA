@@ -23,11 +23,17 @@ export class UtilityService {
   }
 
   async presentModal(props) {
+    console.log('dfdf')
     const modal = await this.modalController.create({
       component: ModalPage,
       componentProps: props
     });
-    return await modal.present();
+    console.log('s')
+    return await modal.present().then((e) => {
+      console.log(e)
+    }).catch((e) => {
+      console.log(e)
+    });
   }
 
   async getLocation() {

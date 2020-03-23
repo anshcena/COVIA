@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AppComponent } from './../app.component';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Router } from '@angular/router';
+import { ModalController } from '@ionic/angular';
 @Component({
   selector: 'app-modal',
   templateUrl: './modal.page.html',
@@ -8,7 +10,10 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class ModalPage implements OnInit {
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+    private modalCtrl: ModalController) { }
 
   percent;
   score;
@@ -19,9 +24,17 @@ export class ModalPage implements OnInit {
     this.sendData()
   }
 
+  async closeModal() {
+    await this.modalCtrl.dismiss();
+  }
+
+  home() {
+    this.router.navigate(['/tabs']);
+   }
+
  public AppRef = AppComponent;
 
-  setLang(e) {
+  setLang() {
     if (AppComponent.languageToggle) {
       AppComponent.currentLang = 'english';
     } else {

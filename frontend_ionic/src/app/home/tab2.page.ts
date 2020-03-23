@@ -1,6 +1,7 @@
 import { AppComponent } from './../app.component';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { BrowserService } from '../browser.service';
 @Component({
   selector: 'app-home',
   templateUrl: 'tab2.page.html',
@@ -10,13 +11,14 @@ export class Tab2Page {
 
   constructor(
     private router: Router,
+    public br: BrowserService
   ) {
 
   }
 
   public AppRef = AppComponent;
 
-  setLang(e) {
+  setLang() {
     if (AppComponent.languageToggle) {
       AppComponent.currentLang = 'english';
     } else {

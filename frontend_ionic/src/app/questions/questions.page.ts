@@ -17,12 +17,12 @@ export class QuestionsPage implements OnInit {
   }
   home() {
    this.router.navigate(['/tabs']);
- }
+  }
 
 
   public AppRef = AppComponent;
 
-  setLang(e) {
+  setLang() {
     if (AppComponent.languageToggle) {
       AppComponent.currentLang = 'english';
     } else {
@@ -223,7 +223,7 @@ export class QuestionsPage implements OnInit {
     for (var i=0; i< this.dict.length; i++) {
       if (this.dict[i]['answer'] == '') {
         this.utils.presentToast('Question ' + (i+1) + ' is empty!')
-        // return
+        return
       }
 
       // add score for bool answer
@@ -246,7 +246,6 @@ export class QuestionsPage implements OnInit {
       'response': this.dict.map((val) => {return val['answer']}),
       'result': result
     }
-
 
 
     this.utils.presentModal({ 

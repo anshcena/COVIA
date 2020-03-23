@@ -11,7 +11,7 @@ export class AboutPage {
 
   public AppRef = AppComponent;
 
-  setLang(e) {
+  setLang() {
     if (AppComponent.languageToggle) {
       AppComponent.currentLang = 'english';
     } else {
