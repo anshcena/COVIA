@@ -14,10 +14,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { PhotoViewer } from '@ionic-native/photo-viewer/ngx';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { ModalPage } from './modal/modal.page';
 
 @NgModule({
-  declarations: [AppComponent],
-  entryComponents: [],
+  declarations: [AppComponent, ModalPage],
+  entryComponents: [ModalPage],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule, ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })],
   providers: [
     StatusBar,

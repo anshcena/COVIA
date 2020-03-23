@@ -5,7 +5,8 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
-  },  {
+  },
+  {
     path: 'myths',
     loadChildren: () => import('./myths/myths.module').then( m => m.MythsPageModule)
   },
@@ -24,6 +25,10 @@ const routes: Routes = [
   {
     path: 'awareness',
     loadChildren: () => import('./awareness/awareness.module').then( m => m.AwarenessPageModule)
+  },
+  {
+    path: 'modal',
+    loadChildren: () => import('./modal/modal.module').then( m => m.ModalPageModule)
   }
 
 ];

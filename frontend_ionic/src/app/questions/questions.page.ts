@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { UtilityService } from '../utility.service';
 @Component({
   selector: 'app-questions',
   templateUrl: './questions.page.html',
@@ -7,7 +8,9 @@ import { Router } from '@angular/router';
 })
 export class QuestionsPage implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(
+    private router: Router,
+    private utils: UtilityService) { }
 
   ngOnInit() {
   }
@@ -71,6 +74,14 @@ export class QuestionsPage implements OnInit {
   }
   ]
   submitQues() {
+    for (var i=0; i< this.dict.length; i++) {
+      if (this.dict[i]['answer'] == '') {
+        this.utils.presentToast('Question ' + (i+1) + ' is empty!')
+        // return
+      }
+    }
+
+    this.utils.presentModal();
   }
 
   setAns(index, ans) {
