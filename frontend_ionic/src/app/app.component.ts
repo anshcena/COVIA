@@ -96,5 +96,30 @@ export class AppComponent {
         "mohfw": "स्वास्थ्य और परिवार कल्याण मंत्रालय",
       }
     },
+    "modal": {
+      "english": {
+        "title":"Test for Doctor Visit",
+        "hindi": "हिंदी",
+        "stress": "May be you are stressed out.",
+        "hydrate":"You need to hydrate properly and ensure proper personal hygiene. Observe and re-evaluate after 2 days.",
+        "consult": "You should consult your doctor. Early checkup can ensure that you are safe.",
+        "call": "Call the DOH Hotline",
+        "score": "Your score for doctor checkup is",
+        "adopt": "Adapted from ",
+        "guide": "Guidelines"
+      },
+      "hindi": {
+        "title":"डॉक्टर को दिखाने के लिए परीक्षण",
+        "hindi": "Hindi",
+        "stress": "हो सकता है आप तनाव में हैं।",
+        "hydrate": "आपको ठीक से हाइड्रेट करने और उचित व्यक्तिगत स्वच्छता सुनिश्चित करने की आवश्यकता है। 2 दिनों के बाद निरीक्षण और पुनर्मूल्यांकन करें।",
+        "consult": "आपको अपने डॉक्टर से सलाह लेनी चाहिए। प्रारंभिक जाँच यह सुनिश्चित कर सकती है कि आप सुरक्षित हैं।",
+        "call": "डीओएच हॉटलाइन को कॉल करें",
+        "score": "डॉक्टर चेकअप के लिए आपका स्कोर है",
+        "adopt": "दिशा-निर्देश",
+        "guide": "से गृहीत किया गया"
+
+      }
+    }
     }
 }

@@ -29,8 +29,8 @@
 </div>
 <div id="english" style="display: none;" *ngIf="english.length > 0">
   <ion-item *ngFor="let e of english">
-    <ion-label >
-      {{e.title}}
+    <ion-label (click)="loadLink(e.src)">
+     <a> {{e.title}}</a>
     </ion-label>
   </ion-item>
 </div>

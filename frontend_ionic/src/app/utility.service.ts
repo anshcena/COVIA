@@ -22,9 +22,10 @@ export class UtilityService {
     t.present();
   }
 
-  async presentModal() {
+  async presentModal(props) {
     const modal = await this.modalController.create({
-      component: ModalPage
+      component: ModalPage,
+      componentProps: props
     });
     return await modal.present();
   }

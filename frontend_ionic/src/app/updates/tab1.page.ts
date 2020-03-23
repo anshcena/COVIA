@@ -29,7 +29,6 @@ export class Tab1Page {
   
   fetchUpdates() {
      this.http.get(AppComponent.base + 'india_data').subscribe((res) => {
-       console.log(res)
         if (res['status']) {
         this.table_head = res['data']['table'][0]
         this.table_data = res['data']['table'][1]

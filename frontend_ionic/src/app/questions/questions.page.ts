@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AppComponent } from './../app.component';
 import { Router } from '@angular/router';
 import { UtilityService } from '../utility.service';
 @Component({
@@ -17,157 +18,244 @@ export class QuestionsPage implements OnInit {
   home() {
    this.router.navigate(['/tabs']);
  }
+
+
+  public AppRef = AppComponent;
+
+  setLang(e) {
+    if (AppComponent.languageToggle) {
+      AppComponent.currentLang = 'english';
+    } else {
+      AppComponent.currentLang = 'hindi';
+    }
+  }
+
  dict = [
   {
     'question':{
-    'eng': 'Gender',
+    'english': 'Gender',
     'hindi' : 'लिंग'
     },
     'options':{
-    'eng':['Male', 'Female', 'Other'],
-    'hindi':[पुरुष, महिला, अन्य]
+    'english':['Male', 'Female', 'Other'],
+    'hindi':['पुरुष', 'महिला', 'अन्य']
     },
-    'answer': {
-    'eng': '',
-    'hindi': ''
-    },
+    'answer': '',
     'points': '0',
   },
   {
     'question':{
-    'eng': 'Age',
+    'english': 'Age',
     'hindi' : 'आयु'
     },
     'options':[],
     'placeholder':{
-    'eng':'Enter age',
+    'english':'Enter age',
     'hindi': 'उम्र दर्ज करें'
     } ,
-    'answer': {
-    'eng': '',
-    'hindi': ''
-    },
+    'answer': '',
      'points': '0',
   },
   {
     'question':{
-    'eng': Have you recently traveled to an area with known local spread of COVID-19?',
+    'english': 'Have you recently traveled to an area with known local spread of COVID-19?',
     'hindi' : 'क्या आपने हाल ही में COVID-19 के ज्ञात स्थानीय प्रसार वाले क्षेत्र की यात्रा की है?'
     },
     'options':{
-    'eng': ['Yes', 'No'],
-    'hindi':[हाँ, नहीं],
+    'english': ['Yes', 'No'],
+    'hindi':['हाँ', 'नहीं'],
     }
    ,
-    'answer': {
-    'eng': '',
-    'hindi': ''
+    'answer': '',
+     'points': '3',
+  },
+   {
+    'question':{
+    'english': 'Have you travelled recently during the past 14 days?',
+    'hindi' : 'क्या आपने पिछले 14 दिनों के दौरान हाल ही में यात्रा की है?'
     },
+    'options':{
+    'english': ['Yes', 'No'],
+    'hindi':['हाँ', 'नहीं'],
+    }
+   ,
+    'answer': '',
      'points': '3',
   },
   {
     'question':{
-    'eng':'Have you come into close contact (within 6 feet) with someone who has a laboratory-confirmed COVID – 19 diagnoses in the past 14 days?',
+    'english':'Have you come into close contact (within 6 feet) with someone who has a laboratory-confirmed COVID – 19 diagnoses in the past 14 days?',
     'hindi':'क्या आप पिछले 14 दिनों में प्रयोगशाला निदान की पुष्टि करने वाले COVID - 19 वाले किसी व्यक्ति के साथ (6 फीट के भीतर) निकट संपर्क में आए हैं?',
     },
      'type': 'text',
     'options':{
-    'eng':['Yes', 'No'],
-    'hindi':[हाँ, नहीं],
+    'english':['Yes', 'No'],
+    'hindi':['हाँ', 'नहीं'],
     },
-     'answer': {
-    'eng': '',
-    'hindi': ''
-    },
+     'answer': '',
      'points': '3',
   },
   {
     'question':{
-    'eng':'Do you have a fever (greater than 100.4 F > 38.0 C)?',
-    'hindi':क्या आपको बुखार है (100.4 F> 38.0 C से अधिक)?,
+    'english':'Do you have a fever (greater than 100.4 F > 38.0 C)?',
+    'hindi': 'क्या आपको बुखार है (100.4 F> 38.0 C से अधिक)?',
     },
      'type': 'text',
     'options':{
-    'eng':['Yes', 'No'],
-    'hindi':[हाँ, नहीं],
+    'english':['Yes', 'No'],
+    'hindi':['हाँ', 'नहीं'],
     },
-    'answer': {
-    'eng': '',
-    'hindi': ''
-    },
+    'answer': '',
      'points': '1',
   },
   {
     'question':{
-    'eng':'Cough?',
-    'hindi':खांसी?,
+    'english':'Cough?',
+    'hindi':'खांसी?',
     },
     'options':{
-    'eng':['Once in a day', '2-5 time in a day', 'More than that', 'No'],
-    'hindi':[दिन में एक बार, दिन में 2-5 बार, इससे ज्यादा बार, नहीं],
+    'english':['Once in a day', '2-5 time in a day', 'More than that', 'No'],
+    'hindi':['दिन में एक बार', 'दिन में 2-5 बार', 'इससे ज्यादा बार', 'नहीं'],
     },
-    'answer': {
-    'eng': '',
-    'hindi': ''
-    },
+    'answer': '',
      'points': '1',
   },
   {
     'question':{
-    'eng':'Shortness of breath?',
-    'hindi':'साँसों की कमी?',
+    'english':'Do you have sore throat?',
+    'hindi':'क्या आपके गले में खराश है?',
     },
     'options':{
-    'eng':,
-    'hindi':[हाँ, नहीं],
-    }['Yes', 'No'],
-    'answer': {
-    'eng': '',
-    'hindi': ''
+    'english': ['Yes', 'No'],
+    'hindi':['हाँ', 'नहीं'],
     },
-     'points': '2',
+    'answer': '',
+     'points': '1',
   },
   {
     'question':{
-    'eng':'Difficulty breathing?',
+    'english':'Difficulty breathing?',
     'hindi':'सांस लेने मे तकलीफ?',
     },
     'options':{
-    'eng':['Yes', 'No'],
-    'hindi':[हाँ, नहीं],
+    'english':['Yes', 'No'],
+    'hindi':['हाँ', 'नहीं'],
     },
-    'answer': {
-    'eng': '',
-    'hindi': ''
-    },
+    'answer': '',
      'points': '2',
   },
   {
     'question':{
-    'eng':'Existing/History Medical Condition.',
-    'hindi':मौजूदा / इतिहास चिकित्सा स्थिति।,
+    'english':'Existing/History Medical Condition.',
+    'hindi':'मौजूदा / इतिहास चिकित्सा स्थिति।',
     },
     'options':{
-    'eng':['Heart disease', 'Diabetes', 'Lung disease', 'Asthma', 'HIV', 'No'],
-    'hindi':[दिल के रोग, मधुमेह, फेफड़ों की बीमारी, दमा, मानव रोगक्षमपयॉप्तता विषाणु(HIV), नहीं],
+    'english':['Heart disease', 'Diabetes', 'Lung disease', 'Asthma', 'HIV', 'No'],
+    'hindi':['दिल के रोग', 'मधुमेह', 'फेफड़ों की बीमारी','दमा','मानव रोगक्षमपयॉप्तता विषाणु(HIV)', 'नहीं'],
     },
-    'answer': {
-    'eng': '',
-    'hindi': ''
+    'answer': '',
+     'points': '0',
+  },
+   {
+    'question':{
+    'english':'Are you expriencing fatigue?',
+    'hindi':'क्या आपको थकान हो रही है?',
     },
+     'options':{
+    'english':['Yes', 'No'],
+    'hindi':['हाँ', 'नहीं'],
+    },
+    'answer': '',
+     'points': '2',
+  },
+   {
+    'question':{
+    'english':'Are you expriencing MYAGLIA or body aches?',
+    'hindi':'क्या आपको मांसपेशियों या शरीर में दर्द हो रहा है?',
+    },
+     'options':{
+    'english':['Yes', 'No'],
+    'hindi':['हाँ', 'नहीं'],
+    },
+    'answer': '',
      'points': '1',
+  },
+   {
+    'question':{
+    'english':'Do you have cold?',
+    'hindi':'क्या आपको सर्दी है?',
+    },
+     'options':{
+    'english':['Yes', 'No'],
+    'hindi':['हाँ', 'नहीं'],
+    },
+    'answer': '',
+     'points': '1',
+  },
+   {
+    'question':{
+    'english':'Are you having Diarrhea?',
+    'hindi':'क्या आपको दस्त है?',
+    },
+     'options':{
+    'english':['Yes', 'No'],
+    'hindi':['हाँ', 'नहीं'],
+    },
+    'answer': '',
+     'points': '1',
+  },
+   {
+    'question':{
+    'english':'Do you have a headache?',
+    'hindi':'क्या आपको सिरदर्द हो रहा है?',
+    },
+     'options':{
+    'english':['Yes', 'No'],
+    'hindi':['हाँ', 'नहीं'],
+    },
+    'answer': '',
+    'points': '1',
   }
   ]
   async submitQues() {
+    var score = 0, percent = 0.0;
+
     for (var i=0; i< this.dict.length; i++) {
       if (this.dict[i]['answer'] == '') {
         this.utils.presentToast('Question ' + (i+1) + ' is empty!')
-        return
+        // return
       }
+
+      // add score for bool answer
+      if (this.dict[i]['answer'] != 'No' || this.dict[i]['answer'] == 'नहीं')
+      score = score + Number(this.dict[i]['points']);
+
+      // compute %
+      percent = (score/20) * 80
+      
     }
 
-    this.utils.presentModal();
     var {lat, long} = await this.utils.getLocation();
+
+    var result = score >=0 && score <=2 ? 'green': score >=3 && score <=5 ? 'yellow' : score >= 6 && score <=12 ? 'orange' : 'red'
+
+    var data = {
+      'lat': lat,
+      'lon': long,
+      'score': score,
+      'response': this.dict.map((val) => {return val['answer']}),
+      'result': result
+    }
+
+
+
+    this.utils.presentModal({ 
+        score: score,
+        percent: percent.toFixed(2),
+        data: data,
+        heart_class: result
+      }
+    );
   }
 
   setAns(index, ans) {
