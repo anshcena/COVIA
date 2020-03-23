@@ -17,7 +17,16 @@ export class Tab1Page {
   ngOnInit() {
     this.fetchUpdates();
   }
+  public AppRef = AppComponent;
 
+  setLang(e) {
+    if (AppComponent.languageToggle) {
+      AppComponent.currentLang = 'english';
+    } else {
+      AppComponent.currentLang = 'hindi';
+    }
+  }
+  
   fetchUpdates() {
      this.http.get(AppComponent.base + 'india_data').subscribe((res) => {
        console.log(res)

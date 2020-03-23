@@ -1,3 +1,4 @@
+import { AppComponent } from './../app.component';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 @Component({
@@ -6,8 +7,22 @@ import { Router } from '@angular/router';
   styleUrls: ['tab2.page.scss']
 })
 export class Tab2Page {
-  constructor(private router: Router,
-              ) {}
+
+  constructor(
+    private router: Router,
+  ) {
+
+  }
+
+  public AppRef = AppComponent;
+
+  setLang(e) {
+    if (AppComponent.languageToggle) {
+      AppComponent.currentLang = 'english';
+    } else {
+      AppComponent.currentLang = 'hindi';
+    }
+  }
 
   questionSection(){
     this.router.navigate(['/questions']);

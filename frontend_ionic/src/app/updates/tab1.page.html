@@ -1,14 +1,15 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>
-      Updates
-    </ion-title>
+    <div class="header-section">
+      <ion-title class="ion-text-left">{{AppRef.content.updates[AppRef.currentLang]['updates']}}</ion-title>
+      Eng<ion-toggle (ngModelChange)="setLang()"  [(ngModel)]="AppRef.languageToggle" color="light"></ion-toggle>{{AppRef.content.updates[AppRef.currentLang]['hindi']}}
+    </div>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
 
-  <h6 class="source ion-text-center">Data Source:<a href="https://www.mohfw.gov.in/" target="_blank">MOHFW</a></h6>
+  <h6 class="source ion-text-center">{{AppRef.content.updates[AppRef.currentLang]['dataSource']}}:<a href="https://www.mohfw.gov.in/" target="_blank">{{AppRef.content.updates[AppRef.currentLang]['mohfw']}}</a></h6>
   <ion-grid>
     <ion-row>
       <ion-col *ngFor="let card of meta">
