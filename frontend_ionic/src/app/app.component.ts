@@ -69,6 +69,7 @@ export class AppComponent {
           "and": "and",
           "website": "website",
           "mohfw": "MOHFW",
+          "who": "WHO"
       },
       "hindi": {
           "hindi": "हिंदी",

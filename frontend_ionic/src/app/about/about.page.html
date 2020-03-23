@@ -2,7 +2,9 @@
   <ion-toolbar>
     <div class="header-section">
       <ion-title class="ion-text-left">About</ion-title>
+      <div class="toogle-left">
       Eng<ion-toggle (ngModelChange)="setLang()"  [(ngModel)]="AppRef.languageToggle" color="light"></ion-toggle>{{AppRef.content.about[AppRef.currentLang]['hindi']}}
+    </div>
     </div>
   </ion-toolbar>
 </ion-header>
@@ -15,9 +17,7 @@
       <a  href="https://www.cdc.gov/coronavirus/2019-ncov/symptoms-testing/symptoms.html" target="_blank" class="covia-fetched-links">https://www.cdc.gov/coronavirus/2019-ncov/symptoms-testing/symptoms.html</a>
       <h3 class="covia-fetched-info">{{AppRef.content.about[AppRef.currentLang]['precaution']}}</h3>
       <a href="https://www.cdc.gov/coronavirus/2019-ncov/prepare/prevention.html"  target="_blank"  class="covia-fetched-links">https://www.cdc.gov/coronavirus/2019-ncov/prepare/prevention.html</a>
-      <h3 class="covia-fetched-info">{{AppRef.content.about[AppRef.currentLang]['github']}}</h3>
-      <a href="https://github.com/RoboMx/Covia" target="_blank"  class="covia-fetched-links">https://github.com/RoboMx/Covia</a>
-
+     
       <br/><br/>
       <h3 class="covia-fetched-info">{{AppRef.content.about[AppRef.currentLang]['support']}}</h3>
       <div class="image-center">

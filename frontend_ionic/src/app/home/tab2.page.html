@@ -2,7 +2,9 @@
   <ion-toolbar>
     <div class="header-section">
       <ion-title class="ion-text-left">Home</ion-title>
+      <div class="toogle-left">
       Eng<ion-toggle (ngModelChange)="setLang()"  [(ngModel)]="AppRef.languageToggle" color="light"></ion-toggle>{{AppRef.content.home[AppRef.currentLang]['hindi']}}
+    </div>
     </div>
   </ion-toolbar>
 </ion-header>
