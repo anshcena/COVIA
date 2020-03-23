@@ -1,8 +1,9 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>
-      Home
-    </ion-title>
+    <div class="header-section">
+      <ion-title class="ion-text-left">Home</ion-title>
+      Eng<ion-toggle (ngModelChange)="setLang()"  [(ngModel)]="AppRef.languageToggle" color="light"></ion-toggle>{{AppRef.content.home[AppRef.currentLang]['hindi']}}
+    </div>
   </ion-toolbar>
 </ion-header>
 
@@ -10,17 +11,17 @@
   <div class="logo-container">
       <img src="../../assets/icon/icon.png" class="logo-height" alt= "covia-logo">
   </div>
-    <h1 class="covia-title">COVIA</h1>
-    <h2 class="covia-subtitle">Corona Virus Alert app containing informative real data of the outburst.</h2>
+    <h1 class="covia-title">{{AppRef.content.home[AppRef.currentLang]['title']}}</h1>
+    <h2 class="covia-subtitle">{{AppRef.content.home[AppRef.currentLang]['subtitle']}}</h2>
   <div class="covia-buttons ion-text-center">
-    <ion-button color="primary" (click)="questionSection()">Self Check-Up</ion-button>
+    <ion-button color="primary" (click)="questionSection()">{{AppRef.content.home[AppRef.currentLang]['checkupButton']}}</ion-button>
     <ion-button color="dark">
-      <a href="https://bing.com/covid" target="_blank" rel="noopener" >Track World Cases</a>
+      <a href="https://bing.com/covid" target="_blank" rel="noopener" >{{AppRef.content.home[AppRef.currentLang]['trackButton']}}</a>
     </ion-button>
   </div>
   <div class="footer-area">
   <div class="social-footer-area">
-    <h2 class="covia-footer-title">Get official world updates from <a href="https://who.int" target="_blank" rel="noopener" ><strong class="WHO-color">WHO</strong></a> on</h2>
+    <h2 class="covia-footer-title">{{AppRef.content.home[AppRef.currentLang]['updates']}} <a href="https://who.int" target="_blank" rel="noopener" ><strong class="WHO-color"> {{AppRef.content.home[AppRef.currentLang]['who']}}</strong></a> {{AppRef.content.home[AppRef.currentLang]['on']}}</h2>
       <a href="https://wa.me/41798931892" target="_blank" rel="noopener" >
         <ion-icon name="logo-whatsapp" class="whatsapp"></ion-icon>
       </a>
@@ -32,7 +33,7 @@
       </a>
   </div>
   <div class="">
-    <h2 class="covia-footer-title">Indian region updates from <a class="mhfw" href="https://www.mohfw.gov.in/">Ministry of Health and Family Welfare</a>.</h2>
+    <h2 class="covia-footer-title">{{AppRef.content.home[AppRef.currentLang]['region']}} <a class="mhfw" href="https://www.mohfw.gov.in/">{{AppRef.content.home[AppRef.currentLang]['mohfw']}}</a>.</h2>
   </div>
 </div>
 </ion-content>  

@@ -20,8 +20,12 @@
 .data-width {
   width: 180px;
 }
-
 .source {
   padding: 5px;
   color: #35495e;
+}
+.header-section {
+  display: flex;
+  align-items: center;
+  padding: 10px;
 }
