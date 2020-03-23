@@ -15,6 +15,7 @@ import { PhotoViewer } from '@ionic-native/photo-viewer/ngx';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { ModalPage } from './modal/modal.page';
+import { Geolocation } from '@ionic-native/geolocation/ngx';
 
 @NgModule({
   declarations: [AppComponent, ModalPage],
@@ -25,6 +26,7 @@ import { ModalPage } from './modal/modal.page';
     SplashScreen,
     PhotoViewer,
     InAppBrowser,
+    Geolocation,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

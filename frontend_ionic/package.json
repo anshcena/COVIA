@@ -32,6 +32,7 @@
     "com-sarriaroman-photoviewer": "^1.2.4",
     "cordova-android": "^8.1.0",
     "cordova-browser": "^6.0.0",
+    "cordova-plugin-geolocation": "^4.0.2",
     "cordova-plugin-inappbrowser": "^3.2.0",
     "core-js": "^2.5.0",
     "rxjs": "~6.5.1",

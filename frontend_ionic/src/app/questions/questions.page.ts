@@ -73,15 +73,17 @@ export class QuestionsPage implements OnInit {
     'answer': ''
   }
   ]
-  submitQues() {
+  
+  async submitQues() {
     for (var i=0; i< this.dict.length; i++) {
       if (this.dict[i]['answer'] == '') {
         this.utils.presentToast('Question ' + (i+1) + ' is empty!')
-        // return
+        return
       }
     }
 
     this.utils.presentModal();
+    var {lat, long} = await this.utils.getLocation();
   }
 
   setAns(index, ans) {
