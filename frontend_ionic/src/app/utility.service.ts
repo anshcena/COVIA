@@ -23,26 +23,13 @@ export class UtilityService {
   }
 
   async presentModal(props) {
-    console.log('dfdf')
     const modal = await this.modalController.create({
       component: ModalPage,
       componentProps: props
     });
-    console.log('s')
     return await modal.present().then((e) => {
-      console.log(e)
     }).catch((e) => {
-      console.log(e)
     });
-  }
-
-  async getLocation() {
-     return await this.geolocation.getCurrentPosition().then((resp) => {
-      return {lat: resp['coords'].latitude, long:resp['coords'].longitude}
-     }).catch((error) => {
-       console.log('Error getting location', error);
-       return {lat: 0, long: 0}
-     });
   }
 
 }
