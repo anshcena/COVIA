@@ -17,63 +17,147 @@ export class QuestionsPage implements OnInit {
   home() {
    this.router.navigate(['/tabs']);
  }
-  dict = [
+ dict = [
   {
-    'question':'Gender',
-    'type': 'text',
-    'options':['Male', 'Female', 'Other'],
-    'answer': ''
+    'question':{
+    'eng': 'Gender',
+    'hindi' : 'लिंग'
+    },
+    'options':{
+    'eng':['Male', 'Female', 'Other'],
+    'hindi':[पुरुष, महिला, अन्य]
+    },
+    'answer': {
+    'eng': '',
+    'hindi': ''
+    },
+    'points': '0',
   },
   {
-    'question':'Age',
+    'question':{
+    'eng': 'Age',
+    'hindi' : 'आयु'
+    },
     'options':[],
-    'placeholder': 'Enter age',
-    'answer': ''
+    'placeholder':{
+    'eng':'Enter age',
+    'hindi': 'उम्र दर्ज करें'
+    } ,
+    'answer': {
+    'eng': '',
+    'hindi': ''
+    },
+     'points': '0',
   },
   {
-    'question':'Have you recently traveled to an area with known local spread of COVID-19?',
-     'type': 'text',
-    'options':['Yes', 'No'],
-    'answer': ''
+    'question':{
+    'eng': Have you recently traveled to an area with known local spread of COVID-19?',
+    'hindi' : 'क्या आपने हाल ही में COVID-19 के ज्ञात स्थानीय प्रसार वाले क्षेत्र की यात्रा की है?'
+    },
+    'options':{
+    'eng': ['Yes', 'No'],
+    'hindi':[हाँ, नहीं],
+    }
+   ,
+    'answer': {
+    'eng': '',
+    'hindi': ''
+    },
+     'points': '3',
   },
   {
-    'question':'Have you come into close contact (within 6 feet) with someone who has a laboratory-confirmed COVID – 19 diagnoses in the past 14 days?',
+    'question':{
+    'eng':'Have you come into close contact (within 6 feet) with someone who has a laboratory-confirmed COVID – 19 diagnoses in the past 14 days?',
+    'hindi':'क्या आप पिछले 14 दिनों में प्रयोगशाला निदान की पुष्टि करने वाले COVID - 19 वाले किसी व्यक्ति के साथ (6 फीट के भीतर) निकट संपर्क में आए हैं?',
+    },
      'type': 'text',
-    'options':['Yes', 'No'],
-    'answer': ''
+    'options':{
+    'eng':['Yes', 'No'],
+    'hindi':[हाँ, नहीं],
+    },
+     'answer': {
+    'eng': '',
+    'hindi': ''
+    },
+     'points': '3',
   },
   {
-    'question':'Do you have a fever (greater than 100.4 F > 38.0 C)?',
+    'question':{
+    'eng':'Do you have a fever (greater than 100.4 F > 38.0 C)?',
+    'hindi':क्या आपको बुखार है (100.4 F> 38.0 C से अधिक)?,
+    },
      'type': 'text',
-    'options':['Yes', 'No'],
-    'answer': ''
+    'options':{
+    'eng':['Yes', 'No'],
+    'hindi':[हाँ, नहीं],
+    },
+    'answer': {
+    'eng': '',
+    'hindi': ''
+    },
+     'points': '1',
   },
   {
-    'question':'Cough?',
-     'type': 'text',
-    'options':['Once in a day', '2-5 time in a day', 'More than that', 'No'],
-    'answer': ''
+    'question':{
+    'eng':'Cough?',
+    'hindi':खांसी?,
+    },
+    'options':{
+    'eng':['Once in a day', '2-5 time in a day', 'More than that', 'No'],
+    'hindi':[दिन में एक बार, दिन में 2-5 बार, इससे ज्यादा बार, नहीं],
+    },
+    'answer': {
+    'eng': '',
+    'hindi': ''
+    },
+     'points': '1',
   },
   {
-    'question':'Shortness of breath?',
-     'type': 'text',
-    'options':['Yes', 'No'],
-    'answer': ''
+    'question':{
+    'eng':'Shortness of breath?',
+    'hindi':'साँसों की कमी?',
+    },
+    'options':{
+    'eng':,
+    'hindi':[हाँ, नहीं],
+    }['Yes', 'No'],
+    'answer': {
+    'eng': '',
+    'hindi': ''
+    },
+     'points': '2',
   },
   {
-    'question':'Difficulty breathing?',
-     'type': 'text',
-    'options':['Yes', 'No'],
-    'answer': ''
+    'question':{
+    'eng':'Difficulty breathing?',
+    'hindi':'सांस लेने मे तकलीफ?',
+    },
+    'options':{
+    'eng':['Yes', 'No'],
+    'hindi':[हाँ, नहीं],
+    },
+    'answer': {
+    'eng': '',
+    'hindi': ''
+    },
+     'points': '2',
   },
   {
-    'question':'Existing/History Medical Condition.',
-     'type': 'text',
-    'options':['Heart disease', 'Diabetes', 'Lung disease', 'Asthma', 'HIV', 'No'],
-    'answer': ''
+    'question':{
+    'eng':'Existing/History Medical Condition.',
+    'hindi':मौजूदा / इतिहास चिकित्सा स्थिति।,
+    },
+    'options':{
+    'eng':['Heart disease', 'Diabetes', 'Lung disease', 'Asthma', 'HIV', 'No'],
+    'hindi':[दिल के रोग, मधुमेह, फेफड़ों की बीमारी, दमा, मानव रोगक्षमपयॉप्तता विषाणु(HIV), नहीं],
+    },
+    'answer': {
+    'eng': '',
+    'hindi': ''
+    },
+     'points': '1',
   }
   ]
-  
   async submitQues() {
     for (var i=0; i< this.dict.length; i++) {
       if (this.dict[i]['answer'] == '') {
