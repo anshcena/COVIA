@@ -26,11 +26,6 @@ const routes: Routes = [
     path: 'awareness',
     loadChildren: () => import('./awareness/awareness.module').then( m => m.AwarenessPageModule)
   },
-  {
-    path: 'modal',
-    loadChildren: () => import('./modal/modal.module').then( m => m.ModalPageModule)
-  }
-
 ];
 @NgModule({
   imports: [

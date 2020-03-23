@@ -1,6 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
-from main.utils import get_who_myths, get_table_india, get_india_meta_data, get_awarness_links
+from main.utils import get_who_myths, get_table_india, get_india_meta_data, get_awarness_links, get_client_ip
+import json
+from main.models import SelfCheckUpModel
+from django.views.decorators.csrf import csrf_exempt
 
 
 def home(request):
@@ -52,3 +55,33 @@ def awareness_link_data(request):
         return JsonResponse({
             "status": False
         })
+
+
+@csrf_exempt
+def self_check(request):
+    if request.method == 'POST':
+        data = dict(request.POST)
+        print(data)
+        print(request.META)
+        data['ip'] = get_client_ip(request)
+        data['request'] = request.META.get('HTTP_USER_AGENT','')
+
+        try:
+            obj = SelfCheckUpModel.objects.get(ip=data['ip'])
+            obj.result = data['result']
+            obj.score = data['score']
+            obj.response = data['response']
+            obj.save()
+            return JsonResponse({
+                "status": True,
+                "message": "updated"
+            })
+        except SelfCheckUpModel.DoesNotExist:
+            obj = SelfCheckUpModel.objects.create(**data)
+            return JsonResponse({
+                "status": True,
+                "message": "added"
+            })
+    return JsonResponse({
+        "status": False
+    })

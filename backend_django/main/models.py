@@ -25,3 +25,15 @@ class AwarenessDataModel(models.Model):
     title = models.CharField(max_length=300)
     lang = models.CharField(max_length=10)
     timestamp = models.DateTimeField(default=timezone.now)
+
+
+class SelfCheckUpModel(models.Model):
+    lat = models.FloatField(default=0.0)
+    lon = models.FloatField(default=0.0)
+    request = models.TextField()
+    ip = models.GenericIPAddressField()
+    timestamp = models.DateTimeField(default=timezone.now)
+    score = models.FloatField(default=0.0)
+    result = models.IntegerField()
+    response = models.TextField()
+

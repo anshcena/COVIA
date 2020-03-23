@@ -17,25 +17,28 @@
     <h2 class="covia-subtitle">{{AppRef.content.home[AppRef.currentLang]['subtitle']}}</h2>
   <div class="covia-buttons ion-text-center">
     <ion-button color="primary" (click)="questionSection()">{{AppRef.content.home[AppRef.currentLang]['checkupButton']}}</ion-button>
-    <ion-button color="dark">
-      <a href="https://bing.com/covid" target="_blank" rel="noopener" >{{AppRef.content.home[AppRef.currentLang]['trackButton']}}</a>
+    <ion-button color="dark" (click)="br.openLink('https://bing.com/covid')">
+      {{AppRef.content.home[AppRef.currentLang]['trackButton']}}
     </ion-button>
   </div>
   <div class="footer-area">
   <div class="social-footer-area">
-    <h2 class="covia-footer-title">{{AppRef.content.home[AppRef.currentLang]['updates']}} <a href="https://who.int" target="_blank" rel="noopener" ><strong class="WHO-color"> {{AppRef.content.home[AppRef.currentLang]['who']}}</strong></a> {{AppRef.content.home[AppRef.currentLang]['on']}}</h2>
-      <a href="https://wa.me/41798931892" target="_blank" rel="noopener" >
+    <h2 class="covia-footer-title">{{AppRef.content.home[AppRef.currentLang]['updates']}} 
+    <span (click)="br.openLink('https://who.int')">
+    <strong class="WHO-color"> {{AppRef.content.home[AppRef.currentLang]['who']}}</strong></span> 
+      {{AppRef.content.home[AppRef.currentLang]['on']}}</h2>
+      <span (click)="br.openLink('https://wa.me/41798931892')">
         <ion-icon name="logo-whatsapp" class="whatsapp"></ion-icon>
-      </a>
-      <a href="https://twitter.com/WHO" target="_blank" rel="noopener" >
+      </span>
+      <span (click)="br.openLink('https://twitter.com/WHO')">
         <ion-icon name="logo-twitter" class="twitter"></ion-icon>
-      </a>
-      <a href="https://facebook.com/WHO" target="_blank" rel="noopener" >
+      </span>
+      <span (click)="br.openLink('https://facebook.com/WHO')">
         <ion-icon name="logo-facebook" class="facebook"></ion-icon>
-      </a>
+      </span>
   </div>
   <div class="">
-    <h2 class="covia-footer-title">{{AppRef.content.home[AppRef.currentLang]['region']}} <a class="mhfw" href="https://www.mohfw.gov.in/">{{AppRef.content.home[AppRef.currentLang]['mohfw']}}</a>.</h2>
+    <h2 class="covia-footer-title">{{AppRef.content.home[AppRef.currentLang]['region']}} <span class="mhfw" (click)="br.openLink('https://www.mohfw.gov.in/')">{{AppRef.content.home[AppRef.currentLang]['mohfw']}}</span>.</h2>
   </div>
 </div>
 </ion-content>  

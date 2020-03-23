@@ -120,3 +120,12 @@ def get_awarness_links(link):
         save_in_db(AwarenessDataModel,{'link': d['title'], 'src': d['src'], 'lang': 'hin' if d in hinEngData['hindi'] else 'eng'})
     return hinEngData
      
+
+
+def get_client_ip(request):
+    x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+    if x_forwarded_for:
+        ip = x_forwarded_for.split(',')[0]
+    else:
+        ip = request.META.get('REMOTE_ADDR')
+    return ip

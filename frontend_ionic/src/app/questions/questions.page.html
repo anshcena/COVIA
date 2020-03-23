@@ -1,6 +1,7 @@
 <ion-header>
   <ion-toolbar>
   <div class="header-section">
+    <ion-icon name="arrow-back" class="back" (click)="home()"></ion-icon>
     <ion-title class="ion-text-left">Self Checkup</ion-title>
     <div class="toogle-left">
     Eng<ion-toggle (ngModelChange)="setLang()"  [(ngModel)]="AppRef.languageToggle" color="light"></ion-toggle>{{AppRef.content.home[AppRef.currentLang]['hindi']}}

@@ -1,6 +1,7 @@
 <ion-header>
   <ion-toolbar>
     <div class="header-section">
+      <ion-icon name="arrow-back" class="back" (click)="closeModal()"></ion-icon>
       <ion-title class="ion-text-left">{{AppRef.content.modal[AppRef.currentLang]['title']}}</ion-title>
       <div class="toogle-left">
       Eng<ion-toggle (ngModelChange)="setLang()"  [(ngModel)]="AppRef.languageToggle" color="light"></ion-toggle>{{AppRef.content.modal[AppRef.currentLang]['hindi']}}
