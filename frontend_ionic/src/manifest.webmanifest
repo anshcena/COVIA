@@ -1,7 +1,7 @@
 {
   "name": "COVIA",
-  "short_name": "Corona Virus Alert",
-  "theme_color": "#1976d2",
+  "short_name": "COVIA",
+  "theme_color": "#2e8392",
   "background_color": "#fafafa",
   "display": "standalone",
   "scope": "./",
