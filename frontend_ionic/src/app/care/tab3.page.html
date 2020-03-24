@@ -1,77 +1,78 @@
-
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>
-      Care
-    </ion-title>
+    <div class="header-section">
+      <ion-title class="ion-text-left">{{AppRef.content.care[AppRef.currentLang]['care']}}</ion-title>
+      <div class="toogle-left">
+      Eng<ion-toggle (ngModelChange)="setLang()"  [(ngModel)]="AppRef.languageToggle" color="light"></ion-toggle>{{AppRef.content.care[AppRef.currentLang]['hindi']}}
+    </div>
+    </div>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
   <div class="contianer">
-  <h1 class="covia-title">Coronavirus Disease 2019 (COVID-19)</h1>
+  <h1 class="covia-title">{{AppRef.content.care[AppRef.currentLang]['title']}}</h1>
   <div class="covia-page-background">
-    <h1 class="covia-title">Symptoms</h1>
+    <h1 class="covia-title">{{AppRef.content.care[AppRef.currentLang]['symptom']}}</h1>
     <div class="covia-instruction">
-      <p class="ion-text-justify covia-subtitle">Call your doctor: If you think you have been exposed to COVID-19 and develop a fever and symptoms, such as cough or difficulty breathing, call your healthcare provider for medical advice.</p>
+      <p class="ion-text-justify covia-subtitle">{{AppRef.content.care[AppRef.currentLang]['symNote']}}</p>
     </div>
-    <p class="covia-sectionTitle">Watch for symptoms</p>
-    <p class="covia-subtitle ion-text-justify">Reported illnesses have ranged from mild symptoms to severe illness and death for confirmed coronavirus disease 2019 (COVID-19) cases.</p>
-    <p class="covia-subtitle ion-text-justify">The following symptoms may appear <strong>days after exposure.*</strong></p>
+    <p class="covia-sectionTitle">{{AppRef.content.care[AppRef.currentLang]['symWatch']}}</p>
+    <p class="covia-subtitle ion-text-justify">{{AppRef.content.care[AppRef.currentLang]['symReport']}}</p>
+    <p class="covia-subtitle ion-text-justify">{{AppRef.content.care[AppRef.currentLang]['symPoints']}}</p>
     <ul class="covia-subtitle">
-      <li>Fever</li>
-      <li>Cough</li>
-      <li>Shortness of breath</li>
+      <li>{{AppRef.content.care[AppRef.currentLang]['fever']}}</li>
+      <li>{{AppRef.content.care[AppRef.currentLang]['cough']}}</li>
+      <li>{{AppRef.content.care[AppRef.currentLang]['breath']}}</li>
     </ul>
     <div class="covia-warning">
-      <p class="covia-subtitle ion-text-justify">If you develop emergency warning signs for COVID-19 get medical attention immediately. Emergency warning signs include*:</p>
+      <p class="covia-subtitle ion-text-justify">{{AppRef.content.care[AppRef.currentLang]['symSign']}}</p>
       <ul class="covia-subtitle">
-        <li>Difficulty breathing or shortness of breath</li>
-        <li>Persistent pain or pressure in the chest</li>
-        <li>New confusion or inability to arouse</li>
-        <li>Bluish lips or face</li>
+        <li>{{AppRef.content.care[AppRef.currentLang]['pt1']}}</li>
+        <li>{{AppRef.content.care[AppRef.currentLang]['pt2']}}</li>
+        <li>{{AppRef.content.care[AppRef.currentLang]['pt3']}}</li>
+        <li>{{AppRef.content.care[AppRef.currentLang]['pt4']}}</li>
       </ul>
       
     </div>
   </div>
   <div class="covia-page-background">
-    <h1 class="covia-title">Precautions</h1>
+    <h1 class="covia-title">{{AppRef.content.care[AppRef.currentLang]['precaution']}}</h1>
     <div class="covia-instruction">
-      <p class="ion-text-justify covia-subtitle">Stay aware of the latest information on the COVID-19 outbreak, Most people who become infected experience mild illness and recover, but it can be more severe for others. Take care of your health and protect others by doing the following:</p>
+      <p class="ion-text-justify covia-subtitle">{{AppRef.content.care[AppRef.currentLang]['preNote']}}</p>
     </div>
-    <p class="covia-sectionTitle">What you can do</p>
-    <p class="covia-subtitle ion-text-justify"><strong>Wash your hands frequently</strong><br/>
-      Regularly and thoroughly clean your hands with an alcohol-based hand rub or wash them with soap and water.<br/>
+    <p class="covia-sectionTitle">{{AppRef.content.care[AppRef.currentLang]['preDo']}}</p>
+    <p class="covia-subtitle ion-text-justify"><strong>{{AppRef.content.care[AppRef.currentLang]['preWash']}}</strong><br/>
+      {{AppRef.content.care[AppRef.currentLang]['preWashNote']}}<br/>
       
-     <b>Why? </b> Washing your hands with soap and water or using alcohol-based hand rub kills viruses that may be on your hands.</p>
-    <p class="covia-subtitle ion-text-justify"><strong>Maintain social distancing</strong><br/>
-      Maintain at least 1 metre (3 feet) distance between yourself and anyone who is coughing or sneezing.<br/>
+     <b>{{AppRef.content.care[AppRef.currentLang]['preWhy']}} </b> {{AppRef.content.care[AppRef.currentLang]['preWashWhy']}}</p>
+    <p class="covia-subtitle ion-text-justify"><strong>{{AppRef.content.care[AppRef.currentLang]['preSocial']}}</strong><br/>
+      {{AppRef.content.care[AppRef.currentLang]['preSocialNote']}}<br/>
       
-     <b> Why?</b> When someone coughs or sneezes they spray small liquid droplets from their nose or mouth which may contain virus. If you are too close, you can breathe in the droplets, including the COVID-19 virus if the person coughing has the disease.</p>
+     <b> {{AppRef.content.care[AppRef.currentLang]['preWhy']}}</b>{{AppRef.content.care[AppRef.currentLang]['preSocialWhy']}}</p>
      <p class="covia-subtitle ion-text-justify">
-    <b> Avoid touching eyes, nose and mouth</b> <br/>
-     <b>Why?</b>  Hands touch many surfaces and can pick up viruses. Once contaminated, hands can transfer the virus to your eyes, nose or mouth. From there, the virus can enter your body and can make you sick.
+    <b>{{AppRef.content.care[AppRef.currentLang]['preAvoid']}}</b> <br/>
+     <b>{{AppRef.content.care[AppRef.currentLang]['preWhy']}}</b>{{AppRef.content.care[AppRef.currentLang]['preAvoidWhy']}}
      </p>
      <p class="covia-subtitle ion-text-justify">
-      <b>Practice respiratory hygiene</b><br/>
-      Make sure you, and the people around you, follow good respiratory hygiene. This means covering your mouth and nose with your bent elbow or tissue when you cough or sneeze. Then dispose of the used tissue immediately.
-     <b>Why?</b>  Droplets spread virus. By following good respiratory hygiene you protect the people around you from viruses such as cold, flu and COVID-19.
+      <b>{{AppRef.content.care[AppRef.currentLang]['prePractice']}}</b><br/>
+      {{AppRef.content.care[AppRef.currentLang]['prePracticeNote']}}<br/>
+     <b>{{AppRef.content.care[AppRef.currentLang]['preWhy']}}</b>{{AppRef.content.care[AppRef.currentLang]['prePracticeWhy']}}
      </p>
      <p class="covia-subtitle ion-text-justify">
-      <b>Stay home if you feel unwell.</b><br/> If you have a fever, cough and difficulty breathing, seek medical attention and call in advance. Follow the directions of your local health authority.<br/>
+      <b>{{AppRef.content.care[AppRef.currentLang]['preHome']}}</b><br/>{{AppRef.content.care[AppRef.currentLang]['preHomeNote']}}<br/>
 
-     <b>Why?</b>  National and local authorities will have the most up to date information on the situation in your area. Calling in advance will allow your health care provider to quickly direct you to the right health facility. This will also protect you and help prevent spread of viruses and other infections.
-      Stay informed and follow advice given by your healthcare provider.
+     <b>{{AppRef.content.care[AppRef.currentLang]['preWhy']}}</b> {{AppRef.content.care[AppRef.currentLang]['preHomeWhy']}}
      </p>
     <div class="covia-warning">
-      <p class="covia-subtitle ion-text-justify">Protection measures for persons who are in or have recently visited (past 14 days) areas where COVID-19 is spreading</p>
+      <p class="covia-subtitle ion-text-justify">{{AppRef.content.care[AppRef.currentLang]['preSign']}}</p>
       <ul class="covia-subtitle">
-        <li>Follow the guidance outlined above.</li>
-        <li>Stay at home if you begin to feel unwell, even with mild symptoms such as headache and slight runny nose, until you recover. <b>Why?</b> Avoiding contact with others and visits to medical facilities will allow these facilities to operate more effectively and help protect you and others from possible COVID-19 and other viruses.</li>
-        <li>If you develop symptoms, Call in advance and tell your provider of any recent travel or contact with travelers.<b>Why? </b> Calling in advance will allow your health care provider to quickly direct you to the right health facility. This will also help to prevent possible spread of COVID-19 and other viruses.</li>
+        <li>{{AppRef.content.care[AppRef.currentLang]['prePt1']}}</li>
+        <li>{{AppRef.content.care[AppRef.currentLang]['prePt2']}}</li>
+        <li>{{AppRef.content.care[AppRef.currentLang]['prePt3']}}</li>
       </ul>
     </div>
-      <p class="covia-subtitle ion-text-justify">*This list is not all inclusive. Please consult your medical provider for any other symptoms that are severe or concerning.</p>
+      <p class="covia-subtitle ion-text-justify">{{AppRef.content.care[AppRef.currentLang]['info']}}</p>
   </div>
  </div>
 </ion-content>
