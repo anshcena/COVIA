@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AppComponent } from './../app.component';
 
 @Component({
   selector: 'app-tab3',
@@ -8,5 +9,16 @@ import { Component } from '@angular/core';
 export class Tab3Page {
 
   constructor() {}
+
+  
+  public AppRef = AppComponent;
+
+  setLang() {
+    if (AppComponent.languageToggle) {
+      AppComponent.currentLang = 'english';
+    } else {
+      AppComponent.currentLang = 'hindi';
+    }
+  }
 
 }
