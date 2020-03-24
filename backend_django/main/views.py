@@ -61,13 +61,13 @@ def awareness_link_data(request):
 def self_check(request):
     if request.method == 'POST':
         data = {}
-        data['zip_code'] = request.POST['zip_code']
+        data['zip_code'] = request.POST.get('zip_code', '000000')
         data['zip_lat'], data['zip_lon'] = get_coordinates_from_zipcode(data['zip_code'])
         data['ip'] = get_client_ip(request)
         data['request'] = request.META.get('HTTP_USER_AGENT','')
-        data['score'] = request.POST['score']
-        data['result'] = request.POST['result']
-        data['response'] = request.POST['response']
+        data['score'] = float(request.POST.get('score', 0))
+        data['result'] = request.POST.get('result', '')
+        data['response'] = request.POST.get('response', '')
         
         print(data)
         try:

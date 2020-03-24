@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AppComponent } from './../app.component';
 import { Router } from '@angular/router';
 import { UtilityService } from '../utility.service';
+import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-questions',
   templateUrl: './questions.page.html',
@@ -11,9 +12,12 @@ export class QuestionsPage implements OnInit {
 
   constructor(
     private router: Router,
-    private utils: UtilityService) { }
+    private http: HttpClient,
+    private utils: UtilityService) { 
+  }
 
   ngOnInit() {
+   
   }
   home() {
    this.router.navigate(['/tabs']);
@@ -31,6 +35,19 @@ export class QuestionsPage implements OnInit {
   }
 
  dict = [
+  {
+    'question':{
+    'english': 'PIN Code',
+    'hindi' : 'पिन कोड'
+    },
+    'options':[],
+    'placeholder':{
+    'english':'Enter your PIN code',
+    'hindi': 'अपना पिनकोड दर्ज करें'
+    },
+    'answer': '',
+    'points': '0',
+  },
   {
     'question':{
     'english': 'Gender',
@@ -217,12 +234,58 @@ export class QuestionsPage implements OnInit {
     'points': '1',
   }
   ]
-  async submitQues() {
+  submitQues() {
     var score = 0, percent = 0.0;
+    console.log(this.dict)
+    var pin_code = this.dict[0]['answer'].toString();
+
+    // check if zip code is entered
+    if (isNaN(Number(this.dict[0]['answer']))) {
+      if (AppComponent.currentLang == 'english') {
+        this.utils.presentToast('PIN Code should be a number');
+      } else {
+        this.utils.presentToast('पिन कोड नंबर होना चाहिए।')
+      }
+      return
+    }
+
+    if (pin_code.length != 6) {
+      if (AppComponent.currentLang == 'english') {
+        this.utils.presentToast('PIN Code must of 6 numbers');
+      } else {
+        this.utils.presentToast('पिन कोड 6 अंकों का होना चाहिए।');
+      }
+      return;
+    }
+
+      // check age
+      if (isNaN(Number(this.dict[2]['answer'].toString()))) {
+        if (AppComponent.currentLang == 'english') {
+          this.utils.presentToast('Age should be a number');
+        } else {
+          this.utils.presentToast('उम्र नंबर होना चाहिए।')
+        }
+        return
+      }
+
+      if (Number(this.dict[2]['answer']) < 1 && Number(this.dict[2]['answer']) > 110) {
+        if (AppComponent.currentLang == 'english') {
+          this.utils.presentToast('You are too old!');
+        } else {
+          this.utils.presentToast('तुम इतने बूढ़े नहीं हो।');
+        }
+        return;
+      }
 
     for (var i=0; i< this.dict.length; i++) {
+
       if (this.dict[i]['answer'] == '') {
-        this.utils.presentToast('Question ' + (i+1) + ' is empty!')
+        if (AppComponent.currentLang == 'english') {
+          this.utils.presentToast('Question ' + (i+1) + ' is empty!')
+        } else {
+          this.utils.presentToast('सवाल ' + (i+1) + ' खाली है।')
+        }
+        
         return
       }
 
@@ -232,29 +295,35 @@ export class QuestionsPage implements OnInit {
       
     }
 
+
     // compute %
     percent = (score/20) * 80
 
     var result = score >=0 && score <=2 ? 'green': score >=3 && score <=5 ? 'yellow' : score >= 6 && score <=12 ? 'orange' : 'red'
 
-
-    var data = {
-      'score': score,
-      'response': JSON.stringify(this.dict.map((val) => {return val['answer']})),
-      'result': result
-    }
-    
+    const form = new FormData();
+    form.append('zip_code', pin_code);
+    form.append('result', result);
+    form.append('score', score.toString())
+    form.append('response', JSON.stringify(this.dict.map((val) => {return val['answer']})))
+        
     this.utils.presentModal({ 
         score: score,
         percent: percent.toFixed(2),
-        data: data,
+        data: form,
         heart_class: result
       }
     );
+
+    this.http.post(AppComponent.base + 'self_check', form).subscribe((res) => {
+      console.log(res)
+   }, (err) => {
+     console.log(err)
+   });
   }
 
   setAns(index, ans) {
-    this.dict[index]['answer'] = ans;
+    this.dict[index]['answer'] = ans.toString();
 
      var qs = document.getElementsByClassName('quest' + index)
      for (var i=0; i<qs.length; i++) {
