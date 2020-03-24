@@ -31,7 +31,6 @@ export class MythsPage implements OnInit {
 
       }
     }, (error) => {
-      console.log(error)
     });
   }
 

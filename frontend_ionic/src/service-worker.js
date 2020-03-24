@@ -12,7 +12,6 @@ self.addEventListener('install', function(event){
         ]);
       })
       .then(function(){
-        console.log('Service worker is ready, and assets are cached');
       })
     );
   });

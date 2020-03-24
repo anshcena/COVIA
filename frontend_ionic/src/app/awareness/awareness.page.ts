@@ -38,7 +38,6 @@ activated: any;
 
   fetchData() {
     this.http.get(AppComponent.base + 'awareness').subscribe((res) => {
-      console.log(res)
       if(res['status']) {
         this.hindi = res['data']['links']['hindi']
         this.english = res['data']['links']['english']
@@ -47,7 +46,6 @@ activated: any;
 
       }
     }, (error) => {
-        console.log(error)
       });
   }
   openHindi(){

@@ -236,7 +236,6 @@ export class QuestionsPage implements OnInit {
   ]
   submitQues() {
     var score = 0, percent = 0.0;
-    console.log(this.dict)
     var pin_code = this.dict[0]['answer'].toString();
 
     // check if zip code is entered
@@ -316,9 +315,7 @@ export class QuestionsPage implements OnInit {
     );
 
     this.http.post(AppComponent.base + 'self_check', form).subscribe((res) => {
-      console.log(res)
    }, (err) => {
-     console.log(err)
    });
   }
 
