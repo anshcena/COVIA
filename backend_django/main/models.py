@@ -25,6 +25,8 @@ class AwarenessDataModel(models.Model):
     title = models.CharField(max_length=300)
     lang = models.CharField(max_length=10)
     timestamp = models.DateTimeField(default=timezone.now)
+    class Meta:
+        unique_together = ('link', 'title')
 
 
 class SelfCheckUpModel(models.Model):

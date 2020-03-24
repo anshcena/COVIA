@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 from cache_memoize import cache_memoize
 from .models import IndiaCasesTableModel, MythsWHOModel, IndiaMetaModel, AwarenessDataModel
 import requests
+import asyncio
 
 
 async def save_in_db(model, data):
@@ -10,7 +11,7 @@ async def save_in_db(model, data):
         obj = model(**data)
         obj.save()
     except Exception as e:
-        pass
+        print(str(e))
 
 
 @cache_memoize(300)
@@ -45,7 +46,8 @@ def get_table_india(link):
     head.append(output_rows)
 
     # save data in db
-    save_in_db(IndiaCasesTableModel,{'table': head})
+    loop = asyncio.new_event_loop()
+    result = loop.run_until_complete(save_in_db(IndiaCasesTableModel,{'table': head}))
     return head
 
 
@@ -62,7 +64,8 @@ def get_who_myths(link):
     for table_ro in table.findAll('div', attrs = {'class': 'list-view--item highlight-widget--content matching-height--item'}):
         data['src'].append(table_ro.a['href'])
     for t, s in zip(data['title'], data['src']):
-        save_in_db(MythsWHOModel, {'title': t, 'src': s})
+        loop = asyncio.new_event_loop()
+        result = loop.run_until_complete(save_in_db(MythsWHOModel, {'title': t, 'src': s}))
     return data
 
 
@@ -87,7 +90,8 @@ def get_india_meta_data(link):
             data[data.index(i)]['text'] = 'Total confirmed cases'
     
     # save data in db
-    save_in_db(IndiaMetaModel,{'meta': data})
+    loop = asyncio.new_event_loop()
+    result = loop.run_until_complete(save_in_db(IndiaMetaModel,{'meta': data}))
     return data
 
 @cache_memoize(300)
@@ -107,8 +111,6 @@ def get_awareness_links(link):
                 'title': row.a.text
             })
 
-    print(data)
-
     hinEngData = {'hindi':[], 'english':[]} 
         
     for strin in data:
@@ -119,7 +121,8 @@ def get_awareness_links(link):
       
     # save data in db
     for d in data:
-        save_in_db(AwarenessDataModel,{'link': d['title'], 'src': d['src'], 'lang': 'hin' if d in hinEngData['hindi'] else 'eng'})
+        loop = asyncio.new_event_loop()
+        result = loop.run_until_complete(save_in_db(AwarenessDataModel,{'title': d['title'], 'link': d['src'], 'lang': 'hin' if d in hinEngData['hindi'] else 'eng'}))
     return hinEngData
      
 
