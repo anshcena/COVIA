@@ -33,8 +33,16 @@
     </ion-card-content>
     </ion-card>
     </div>
+
+    <p class="ion-text-center">
+       {{AppRef.content.home[AppRef.currentLang]['pp1']}}
+      <a href="https://privacy.robomx.tech/covia/">{{AppRef.content.home[AppRef.currentLang]['pp']}}</a>
+      {{AppRef.content.home[AppRef.currentLang]['pp2']}}
+    </p>
+
     <div class="btn-center">
-      <ion-button class="btn-sub" color="dark" (click)="submitQues()" >Submit</ion-button>
+      <ion-button class="btn-sub" color="dark" (click)="submitQues()" >{{AppRef.content.home[AppRef.currentLang]['submit']}}</ion-button>
     </div>
+
 
 </ion-content>

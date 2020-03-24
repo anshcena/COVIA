@@ -21,14 +21,19 @@ export class AppComponent {
     private splashScreen: SplashScreen,
     private statusBar: StatusBar
   ) {
-    // this.initializeApp();
+    this.initializeApp();
   }
 
   initializeApp() {
-    this.platform.ready().then(() => {
-      this.statusBar.styleDefault();
-      this.splashScreen.hide();
-    });
+    if (this.platform.is("pwa")) {
+
+    } else {
+      this.platform.ready().then(() => {
+        this.statusBar.backgroundColorByName('white');
+        this.statusBar.styleDefault();
+        this.splashScreen.hide();     
+      });
+    }
   }
 
   static content = {
@@ -44,7 +49,11 @@ export class AppComponent {
         "region": "Indian region updates from",
         "mohfw": "Ministry of Health and Family Welfare",
         "hindi": "Hindi",
-        "who": "WHO"
+        "who": "WHO",
+        "pp1": "by submitting this form you agree our ",
+        "pp2": "",
+        "pp": "privacy policy",
+        "submit": "Submit"
   },
       "hindi": {
         "home": "डैशबोर्ड",
@@ -57,7 +66,11 @@ export class AppComponent {
         "region":  "भारतीय क्षेत्र से अद्यतन",
         "mohfw": "स्वास्थ्य और परिवार कल्याण मंत्रालय",
         "hindi": "हिंदी",
-        "who": "विश्व स्वास्थ्य संगठन"
+        "who": "विश्व स्वास्थ्य संगठन",
+        "pp1": "इस फ़ॉर्म को सबमिट करके आप हमारी ",
+        "pp2": "से सहमत होते हैं।",
+        "pp": "गोपनीयता नीति",
+        "submit": "प्रस्तुत"
       }
     },
     "about": {
@@ -104,6 +117,7 @@ export class AppComponent {
         "title":"Test for Doctor Visit",
         "hindi": "Hindi",
         "stress": "May be you are stressed out.",
+        "safe": "You are safe. Take care of yourself.",
         "hydrate":"You need to hydrate properly and ensure proper personal hygiene. Observe and re-evaluate after 2 days.",
         "consult": "You should consult your doctor. Early checkup can ensure that you are safe.",
         "call": "Call the DOH Hotline",
@@ -115,6 +129,7 @@ export class AppComponent {
         "title":"डॉक्टर को दिखाने के लिए परीक्षण",
         "hindi": "हिंदी",
         "stress": "हो सकता है आप तनाव में हैं।",
+        "safe": "आप सुरक्षित है। रोज अपना ख्याल रखें।",
         "hydrate": "आपको ठीक से हाइड्रेट करने और उचित व्यक्तिगत स्वच्छता सुनिश्चित करने की आवश्यकता है। 2 दिनों के बाद निरीक्षण और पुनर्मूल्यांकन करें।",
         "consult": "आपको अपने डॉक्टर से सलाह लेनी चाहिए। प्रारंभिक जाँच यह सुनिश्चित कर सकती है कि आप सुरक्षित हैं।",
         "call": "डीओएच हॉटलाइन को कॉल करें",
