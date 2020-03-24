@@ -141,10 +141,19 @@ def get_coordinates_from_zipcode(code):
     while lat is None:
         try:
             r = requests.get('http://www.postalpincode.in/api/pincode/' + str(code))
+            print(r.json())
             r = r.json()
-            r = r['PostOffice'][0]
-            address = ", ".join([r[add_list[param]] for param in range(count, len(add_list))])
-            lat, lon = get_coordinates(address)
+            # check if r is None
+            if r['PostOffice'] is not None:
+                r = r['PostOffice'][0]
+                address = ", ".join([r[add_list[param]] for param in range(count, len(add_list))])
+                lat, lon, _ = get_coordinates(address)
+                count = count + 1
+            else:
+                # fetch coordinates from google map
+                lat, lon, address = get_coordinates(code)
+                if not address.lower().__contains__('india'):
+                    lat, lon = 0, 0            
             count = count + 1
         except Exception as e:
             print(str(e))
@@ -156,6 +165,8 @@ def get_coordinates(text):
     from geopy.geocoders import Nominatim
     geolocator = Nominatim(user_agent="covia")
     location = geolocator.geocode(str(text))
+    print(location)
+    print('dfd')
     if location is None:
-        return None, None
-    return location.latitude, location.longitude
+        return None, None, None
+    return location.latitude, location.longitude, location.address

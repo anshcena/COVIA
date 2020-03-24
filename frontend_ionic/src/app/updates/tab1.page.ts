@@ -35,7 +35,6 @@ export class Tab1Page {
         this.meta = res['data']['meta']
       }
      }, (err) => {
-       console.log(err)
      });
   }
 }
