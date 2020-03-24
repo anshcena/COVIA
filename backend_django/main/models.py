@@ -28,12 +28,14 @@ class AwarenessDataModel(models.Model):
 
 
 class SelfCheckUpModel(models.Model):
-    lat = models.FloatField(default=0.0)
-    lon = models.FloatField(default=0.0)
+    zip_lat = models.FloatField(default=0.0)
+    zip_lon = models.FloatField(default=0.0)
     request = models.TextField()
     ip = models.GenericIPAddressField()
     timestamp = models.DateTimeField(default=timezone.now)
     score = models.FloatField(default=0.0)
-    result = models.IntegerField()
+    result = models.CharField(max_length=10)
     response = models.TextField()
+    zip_code = models.CharField(max_length=6)
+
 

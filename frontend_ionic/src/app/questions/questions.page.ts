@@ -229,25 +229,21 @@ export class QuestionsPage implements OnInit {
       // add score for bool answer
       if (this.dict[i]['answer'] != 'No' || this.dict[i]['answer'] == 'नहीं')
       score = score + Number(this.dict[i]['points']);
-
-      // compute %
-      percent = (score/20) * 80
       
     }
 
-    var {lat, long} = await this.utils.getLocation();
+    // compute %
+    percent = (score/20) * 80
 
     var result = score >=0 && score <=2 ? 'green': score >=3 && score <=5 ? 'yellow' : score >= 6 && score <=12 ? 'orange' : 'red'
 
+
     var data = {
-      'lat': lat,
-      'lon': long,
       'score': score,
-      'response': this.dict.map((val) => {return val['answer']}),
+      'response': JSON.stringify(this.dict.map((val) => {return val['answer']})),
       'result': result
     }
-
-
+    
     this.utils.presentModal({ 
         score: score,
         percent: percent.toFixed(2),
@@ -262,7 +258,6 @@ export class QuestionsPage implements OnInit {
 
      var qs = document.getElementsByClassName('quest' + index)
      for (var i=0; i<qs.length; i++) {
-       console.log(qs)
        qs[i].setAttribute('color', 'light');
       //  qs[i].style.color = "#fff";
      }
