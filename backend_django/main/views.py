@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
-from main.utils import get_who_myths, get_table_india, get_india_meta_data, get_awarness_links, get_client_ip
+from main.utils import get_who_myths, get_table_india, get_india_meta_data, get_awareness_links, get_client_ip, get_coordinates_from_zipcode
 import json
 from main.models import SelfCheckUpModel
 from django.views.decorators.csrf import csrf_exempt
@@ -41,11 +41,11 @@ def live_india_data(request):
         })
 
 
-
+@csrf_exempt
 def awareness_link_data(request):
     try:
         data = {}
-        data['links'] = get_awarness_links("https://www.mohfw.gov.in/awareness.html")
+        data['links'] = get_awareness_links("https://www.mohfw.gov.in/")
         return JsonResponse({
             "status": True,
             "data": data
@@ -60,12 +60,16 @@ def awareness_link_data(request):
 @csrf_exempt
 def self_check(request):
     if request.method == 'POST':
-        data = dict(request.POST)
-        print(data)
-        print(request.META)
+        data = {}
+        data['zip_code'] = request.POST['zip_code']
+        data['zip_lat'], data['zip_lon'] = get_coordinates_from_zipcode(data['zip_code'])
         data['ip'] = get_client_ip(request)
         data['request'] = request.META.get('HTTP_USER_AGENT','')
-
+        data['score'] = request.POST['score']
+        data['result'] = request.POST['result']
+        data['response'] = request.POST['response']
+        
+        print(data)
         try:
             obj = SelfCheckUpModel.objects.get(ip=data['ip'])
             obj.result = data['result']

@@ -2,6 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 from cache_memoize import cache_memoize
 from .models import IndiaCasesTableModel, MythsWHOModel, IndiaMetaModel, AwarenessDataModel
+import requests
 
 
 async def save_in_db(model, data):
@@ -90,7 +91,7 @@ def get_india_meta_data(link):
     return data
 
 @cache_memoize(300)
-def get_awarness_links(link):
+def get_awareness_links(link):
     URL = link
     r = requests.get(URL) 
 
@@ -98,12 +99,13 @@ def get_awarness_links(link):
 
     data=[] # a list to store quotes 
 
-    table = soup.find('tbody', attrs = {'class':''})
-    for table_row in table.findAll('tr'):
-        data.append({
-            'src': table_row.a['href'],
-            'title': table_row.a.text
-        })
+    table = soup.find('div', attrs = {'id':'dvA'})
+    for table_row in table.findAll('tbody'):
+        for row in table_row.findAll('tr'):
+            data.append({
+                'src': row.a['href'],
+                'title': row.a.text
+            })
 
     print(data)
 
@@ -129,3 +131,31 @@ def get_client_ip(request):
     else:
         ip = request.META.get('REMOTE_ADDR')
     return ip
+
+
+def get_coordinates_from_zipcode(code):
+    lat, lon = None, None
+    add_list = ['Name', 'Circle', 'District', 'State', 'Country']
+    count = 0
+    # check if address if of
+    while lat is None:
+        try:
+            r = requests.get('http://www.postalpincode.in/api/pincode/' + str(code))
+            r = r.json()
+            r = r['PostOffice'][0]
+            address = ", ".join([r[add_list[param]] for param in range(count, len(add_list))])
+            lat, lon = get_coordinates(address)
+            count = count + 1
+        except Exception as e:
+            print(str(e))
+            return 0, 0
+    return lat, lon
+
+
+def get_coordinates(text):
+    from geopy.geocoders import Nominatim
+    geolocator = Nominatim(user_agent="covia")
+    location = geolocator.geocode(str(text))
+    if location is None:
+        return None, None
+    return location.latitude, location.longitude
