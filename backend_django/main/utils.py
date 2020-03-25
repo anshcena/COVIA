@@ -106,10 +106,10 @@ def get_awareness_links(link):
     table = soup.find('div', attrs = {'id':'dvA'})
     for table_row in table.findAll('tbody'):
         for row in table_row.findAll('tr'):
-            if table_row.find('a'):
+            if row.find('a'):
                 data.append({
-                    'src': table_row.a['href'],
-                    'title': table_row.a.text
+                    'src': row.a['href'],
+                    'title': row.a.text
                 })
 
     hinEngData = {'hindi':[], 'english':[]} 

@@ -114,8 +114,8 @@ export class QuestionsPage implements OnInit {
   },
   {
     'question':{
-    'english':'Do you have a fever (greater than 100.4 F > 38.0 C)?',
-    'hindi': 'क्या आपको बुखार है (100.4 F> 38.0 C से अधिक)?',
+    'english':'Do you have a fever (greater than 100.4°F or 38.0°C)?',
+    'hindi': 'क्या आपको बुखार है (100.4°F or 38.0°C से अधिक)?',
     },
      'type': 'text',
     'options':{
@@ -163,7 +163,7 @@ export class QuestionsPage implements OnInit {
   },
   {
     'question':{
-    'english':'Existing/History Medical Condition.',
+    'english':'Existing or Past Medical Condition.',
     'hindi':'मौजूदा / इतिहास चिकित्सा स्थिति।',
     },
     'options':{
@@ -175,7 +175,7 @@ export class QuestionsPage implements OnInit {
   },
    {
     'question':{
-    'english':'Are you expriencing fatigue?',
+    'english':'Are you experiencing fatigue?',
     'hindi':'क्या आपको थकान हो रही है?',
     },
      'options':{
@@ -187,7 +187,7 @@ export class QuestionsPage implements OnInit {
   },
    {
     'question':{
-    'english':'Are you expriencing MYAGLIA or body aches?',
+    'english':'Are you experiencing MYAGLIA or body aches?',
     'hindi':'क्या आपको मांसपेशियों या शरीर में दर्द हो रहा है?',
     },
      'options':{
