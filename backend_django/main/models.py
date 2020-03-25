@@ -39,5 +39,6 @@ class SelfCheckUpModel(models.Model):
     result = models.CharField(max_length=10)
     response = models.TextField()
     zip_code = models.CharField(max_length=6)
-
-
+    age = models.IntegerField(default=0)
+    class Meta:
+        unique_together = ('ip', 'age')

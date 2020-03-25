@@ -305,6 +305,7 @@ export class QuestionsPage implements OnInit {
     form.append('result', result);
     form.append('score', score.toString())
     form.append('response', JSON.stringify(this.dict.map((val) => {return val['answer']})))
+    form.append('age', this.dict[2].answer)
         
     this.utils.presentModal({ 
         score: score,

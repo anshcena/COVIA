@@ -169,7 +169,6 @@ def get_coordinates(text):
     geolocator = Nominatim(user_agent="covia")
     location = geolocator.geocode(str(text))
     print(location)
-    print('dfd')
     if location is None:
         return None, None, None
     return location.latitude, location.longitude, location.address
