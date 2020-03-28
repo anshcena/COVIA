@@ -68,8 +68,10 @@ def self_check(request):
         data['score'] = float(request.POST.get('score', 0))
         data['result'] = request.POST.get('result', '')
         data['response'] = request.POST.get('response', '')
-        
+        data['age'] = int(request.POST.get('age', 0))
+
         print(data)
+        
         try:
             obj = SelfCheckUpModel.objects.get(ip=data['ip'])
             obj.result = data['result']
