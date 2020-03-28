@@ -84,7 +84,7 @@ def get_india_meta_data(link):
 
     for i in data:
         if '*' in i['text']:
-            data[data.index(i)]['text'] = 'Total confirmed cases'
+            data[data.index(i)]['text'] = 'Total active cases'
     
     # save data in db
     save_in_db(IndiaMetaModel,{'meta': data})
