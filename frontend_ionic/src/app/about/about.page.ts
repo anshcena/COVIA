@@ -11,11 +11,5 @@ export class AboutPage {
 
   public AppRef = AppComponent;
 
-  setLang() {
-    if (AppComponent.languageToggle) {
-      AppComponent.currentLang = 'english';
-    } else {
-      AppComponent.currentLang = 'hindi';
-    }
-  }
+ 
 }

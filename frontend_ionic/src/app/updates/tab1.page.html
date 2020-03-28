@@ -3,7 +3,11 @@
     <div class="header-section">
       <ion-title class="ion-text-left">{{AppRef.content.updates[AppRef.currentLang]['updates']}}</ion-title>
       <div class="toogle-left">
-      Eng<ion-toggle (ngModelChange)="setLang()"  [(ngModel)]="AppRef.languageToggle" color="light"></ion-toggle>{{AppRef.content.updates[AppRef.currentLang]['hindi']}}
+        <ion-select  [(ngModel)]="AppRef.currentLang" interface="popover">
+          <ion-select-option  value="english">English</ion-select-option>
+          <ion-select-option  value="hindi">Hindi</ion-select-option>
+          <ion-select-option value="punjabi">Punjabi</ion-select-option>
+        </ion-select>
     </div>
     </div>
   </ion-toolbar>

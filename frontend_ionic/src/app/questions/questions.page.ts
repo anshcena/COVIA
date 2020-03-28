@@ -38,12 +38,14 @@ export class QuestionsPage implements OnInit {
   {
     'question':{
     'english': 'PIN Code',
-    'hindi' : 'पिन कोड'
+    'hindi' : 'पिन कोड',
+    'punjabi': 'ਪਿੰਨ ਕੋਡ'
     },
     'options':[],
     'placeholder':{
     'english':'Enter your PIN code',
-    'hindi': 'अपना पिनकोड दर्ज करें'
+    'hindi': 'अपना पिनकोड दर्ज करें',
+    'punjabi': 'ਆਪਣਾ ਪਿੰਨ ਕੋਡ ਦਰਜ ਕਰੋ'
     },
     'answer': '',
     'points': '0',
@@ -51,11 +53,13 @@ export class QuestionsPage implements OnInit {
   {
     'question':{
     'english': 'Gender',
-    'hindi' : 'लिंग'
+    'hindi' : 'लिंग',
+    'punjabi': 'ਲਿੰਗ'
     },
     'options':{
     'english':['Male', 'Female', 'Other'],
-    'hindi':['पुरुष', 'महिला', 'अन्य']
+    'hindi':['पुरुष', 'महिला', 'अन्य'],
+    'punjabi':['ਮਰਦ', 'ਔਰਤ', ' ਹੋਰ']
     },
     'answer': '',
     'points': '0',
@@ -63,12 +67,14 @@ export class QuestionsPage implements OnInit {
   {
     'question':{
     'english': 'Age',
-    'hindi' : 'आयु'
+    'hindi' : 'आयु',
+    'punjabi': 'ਉਮਰ'
     },
     'options':[],
     'placeholder':{
     'english':'Enter age',
-    'hindi': 'उम्र दर्ज करें'
+    'hindi': 'उम्र दर्ज करें',
+    'punjabi': 'ਉਮਰ ਦਰਜ ਕਰੋ'
     } ,
     'answer': '',
      'points': '0',
@@ -76,11 +82,14 @@ export class QuestionsPage implements OnInit {
   {
     'question':{
     'english': 'Have you recently traveled to an area with known local spread of COVID-19?',
-    'hindi' : 'क्या आपने हाल ही में COVID-19 के ज्ञात स्थानीय प्रसार वाले क्षेत्र की यात्रा की है?'
+    'hindi' : 'क्या आपने हाल ही में COVID-19 के ज्ञात स्थानीय प्रसार वाले क्षेत्र की यात्रा की है?',
+    'punjabi': 'ਕੀ ਤੁਸੀਂ ਹਾਲ ਹੀ ਵਿੱਚ ਕਿਸੇ ਅਜਿਹੇ ਖੇਤਰ ਦੀ ਯਾਤਰਾ ਕੀਤੀ ਹੈ ਜਿਸ ਵਿੱਚ COVID-19 ਦੇ ਜਾਣੇ ਜਾਂਦੇ ਸਥਾਨਕ ਫੈਲਾਅ ਹਨ?'
+    
     },
     'options':{
     'english': ['Yes', 'No'],
     'hindi':['हाँ', 'नहीं'],
+     'punjabi': ['ਹਾਂ ', 'ਨਾਂਹ ']
     }
    ,
     'answer': '',
@@ -89,11 +98,13 @@ export class QuestionsPage implements OnInit {
    {
     'question':{
     'english': 'Have you travelled recently during the past 14 days?',
-    'hindi' : 'क्या आपने पिछले 14 दिनों के दौरान हाल ही में यात्रा की है?'
+    'hindi' : 'क्या आपने पिछले 14 दिनों के दौरान हाल ही में यात्रा की है?',
+    'punjabi': 'ਕੀ ਤੁਸੀਂ ਪਿਛਲੇ 14 ਦਿਨਾਂ ਦੌਰਾਨ ਹਾਲ ਹੀ ਵਿੱਚ ਯਾਤਰਾ ਕੀਤੀ ਹੈ?'
     },
     'options':{
     'english': ['Yes', 'No'],
     'hindi':['हाँ', 'नहीं'],
+     'punjabi': ['ਹਾਂ ', 'ਨਾਂਹ ']
     }
    ,
     'answer': '',
@@ -103,11 +114,13 @@ export class QuestionsPage implements OnInit {
     'question':{
     'english':'Have you come into close contact (within 6 feet) with someone who has a laboratory-confirmed COVID – 19 diagnoses in the past 14 days?',
     'hindi':'क्या आप पिछले 14 दिनों में प्रयोगशाला निदान की पुष्टि करने वाले COVID - 19 वाले किसी व्यक्ति के साथ (6 फीट के भीतर) निकट संपर्क में आए हैं?',
+    'punjabi': 'ਕੀ ਤੁਸੀਂ ਕਿਸੇ ਨਾਲ ਨਜ਼ਦੀਕੀ ਸੰਪਰਕ ਵਿੱਚ ਆਏ ਹੋ (6 ਫੁੱਟ ਦੇ ਅੰਦਰ) ਜਿਸ ਦੀ ਪ੍ਰਯੋਗਸ਼ਾਲਾ ਦੁਆਰਾ ਪੁਸ਼ਟੀ ਕੀਤੀ ਗਈ COVID - 19 ਪਿਛਲੇ 14 ਦਿਨਾਂ ਵਿੱਚ ਤਸ਼ਖੀਸ ਹੈ?'
     },
      'type': 'text',
     'options':{
     'english':['Yes', 'No'],
     'hindi':['हाँ', 'नहीं'],
+     'punjabi': ['ਹਾਂ ', 'ਨਾਂਹ ']
     },
      'answer': '',
      'points': '3',
@@ -116,11 +129,13 @@ export class QuestionsPage implements OnInit {
     'question':{
     'english':'Do you have a fever (greater than 100.4°F or 38.0°C)?',
     'hindi': 'क्या आपको बुखार है (100.4°F or 38.0°C से अधिक)?',
+    'punjabi': 'ਕੀ ਤੁਹਾਨੂੰ ਬੁਖਾਰ ਹੈ (100.4 ° F ਜਾਂ 38.0 ° C ਤੋਂ ਵੱਧ)?'
     },
      'type': 'text',
     'options':{
     'english':['Yes', 'No'],
     'hindi':['हाँ', 'नहीं'],
+     'punjabi': ['ਹਾਂ ', 'ਨਾਂਹ ']
     },
     'answer': '',
      'points': '1',
@@ -129,10 +144,12 @@ export class QuestionsPage implements OnInit {
     'question':{
     'english':'Cough?',
     'hindi':'खांसी?',
+    'punjabi': 'ਖਾਂਸੀ ?'
     },
     'options':{
     'english':['Once in a day', '2-5 time in a day', 'More than that', 'No'],
     'hindi':['दिन में एक बार', 'दिन में 2-5 बार', 'इससे ज्यादा बार', 'नहीं'],
+    'punjabi':['ਦਿਨ ਦੇ ਵਿੱਚ ਇਕ ਵਾਰ', 'ਦਿਨ ਦੇ ਵਿੱਚ 2-5 ਵਾਰ', ' ਇਸ ਤੋਂ ਜਿਆਦਾ ਵਾਰ', 'ਨਾਂਹ ']
     },
     'answer': '',
      'points': '1',
@@ -141,10 +158,12 @@ export class QuestionsPage implements OnInit {
     'question':{
     'english':'Do you have sore throat?',
     'hindi':'क्या आपके गले में खराश है?',
+    'punjabi': 'ਕੀ ਤੁਹਾਨੂੰ ਗਲੇ ਵਿੱਚ ਖਾਰਿਓ ਹੈ?'
     },
     'options':{
     'english': ['Yes', 'No'],
     'hindi':['हाँ', 'नहीं'],
+    'punjabi': ['ਹਾਂ ', 'ਨਾਂਹ ']
     },
     'answer': '',
      'points': '1',
@@ -153,10 +172,12 @@ export class QuestionsPage implements OnInit {
     'question':{
     'english':'Difficulty breathing?',
     'hindi':'सांस लेने मे तकलीफ?',
+    'punjabi': 'ਸਾਹ ਲੈਣ ਵਿੱਚ ਤਕਲੀਫ਼ ?'
     },
     'options':{
     'english':['Yes', 'No'],
     'hindi':['हाँ', 'नहीं'],
+     'punjabi': ['ਹਾਂ ', 'ਨਾਂਹ ']
     },
     'answer': '',
      'points': '2',
@@ -165,10 +186,12 @@ export class QuestionsPage implements OnInit {
     'question':{
     'english':'Existing or Past Medical Condition.',
     'hindi':'मौजूदा / इतिहास चिकित्सा स्थिति।',
+    'punjabi': 'ਮਜੂਦਾ / ਚਿਕਿਤਸਾ ਸਥਿਤੀ ਇਤਿਹਾਸ'
     },
     'options':{
     'english':['Heart disease', 'Diabetes', 'Lung disease', 'Asthma', 'HIV', 'No'],
     'hindi':['दिल के रोग', 'मधुमेह', 'फेफड़ों की बीमारी','दमा','मानव रोगक्षमपयॉप्तता विषाणु(HIV)', 'नहीं'],
+    'punjabi': [' ਦਿਲ ਦਾ ਰੋਗ', ' ਸ਼ੂਗਰ', 'ਫੇਫੜਿਆਂ ਦੀ ਬੀਮਾਰੀ', ' ਦਮਾ', 'ਐੱਚ. ਆਈ. ਵੀ', 'ਨਾਂਹ ']
     },
     'answer': '',
      'points': '0',
@@ -177,10 +200,12 @@ export class QuestionsPage implements OnInit {
     'question':{
     'english':'Are you experiencing fatigue?',
     'hindi':'क्या आपको थकान हो रही है?',
+    'punjabi': 'ਕੀ ਤੁਹਾਨੂੰ ਥਕਾਨ ਹੋ ਰਹੀ ਹੈ ?'
     },
      'options':{
     'english':['Yes', 'No'],
     'hindi':['हाँ', 'नहीं'],
+     'punjabi': ['ਹਾਂ ', 'ਨਾਂਹ ']
     },
     'answer': '',
      'points': '2',
@@ -189,10 +214,12 @@ export class QuestionsPage implements OnInit {
     'question':{
     'english':'Are you experiencing MYAGLIA or body aches?',
     'hindi':'क्या आपको मांसपेशियों या शरीर में दर्द हो रहा है?',
+    'punjabi': 'ਕੀ ਤੁਹਾਨੂੰ ਮਾਸਪੇਸ਼ੀਆਂ ਜਾ ਸਾਰੇ ਸ਼ਰੀਰ ਵਿੱਚ ਦਰਦ ਹੈ?'
     },
      'options':{
     'english':['Yes', 'No'],
     'hindi':['हाँ', 'नहीं'],
+     'punjabi': ['ਹਾਂ ', 'ਨਾਂਹ ']
     },
     'answer': '',
      'points': '1',
@@ -201,10 +228,12 @@ export class QuestionsPage implements OnInit {
     'question':{
     'english':'Do you have cold?',
     'hindi':'क्या आपको सर्दी है?',
+    'punjabi': 'ਕੀ ਤੁਹਾਨੂੰ ਜ਼ੁਕਾਮ ਹੈ'
     },
      'options':{
     'english':['Yes', 'No'],
     'hindi':['हाँ', 'नहीं'],
+     'punjabi': ['ਹਾਂ ', 'ਨਾਂਹ ']
     },
     'answer': '',
      'points': '1',
@@ -213,10 +242,12 @@ export class QuestionsPage implements OnInit {
     'question':{
     'english':'Are you having Diarrhea?',
     'hindi':'क्या आपको दस्त है?',
+    'punjabi': 'ਕੀ ਤੁਹਾਨੂੰ ਦਸਤ ਲੱਗੇ ਹਨ ?'
     },
      'options':{
     'english':['Yes', 'No'],
     'hindi':['हाँ', 'नहीं'],
+     'punjabi': ['ਹਾਂ ', 'ਨਾਂਹ ']
     },
     'answer': '',
      'points': '1',
@@ -225,10 +256,12 @@ export class QuestionsPage implements OnInit {
     'question':{
     'english':'Do you have a headache?',
     'hindi':'क्या आपको सिरदर्द हो रहा है?',
+    'punjabi': ' ਕੀ ਤੁਹਾਨੂੰ ਸਿਰ ਦਰਦ ਹੈ ?'
     },
      'options':{
     'english':['Yes', 'No'],
     'hindi':['हाँ', 'नहीं'],
+     'punjabi': ['ਹਾਂ ', 'ਨਾਂਹ ']
     },
     'answer': '',
     'points': '1',

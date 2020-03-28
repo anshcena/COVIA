@@ -18,13 +18,6 @@ export class Tab2Page {
 
   public AppRef = AppComponent;
 
-  setLang() {
-    if (AppComponent.languageToggle) {
-      AppComponent.currentLang = 'english';
-    } else {
-      AppComponent.currentLang = 'hindi';
-    }
-  }
 
   questionSection(){
     this.router.navigate(['/questions']);
