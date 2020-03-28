@@ -73,7 +73,7 @@ export class AppComponent {
         "submit": "प्रस्तुत"
       },
        "punjabi": {
-        "home": "",
+        "home": "ਘਰ",
         "title": "ਕੋਵਿਆ",
         "subtitle": "ਕਰੋਨਾ ਵਾਇਰਸ ਚੁਕੰਨਾ ਐਪ ਜਿਸ ਵਿੱਚ ਵਿਸਫੋਟ ਦਾ ਵਾਸਤਵਿਕ ਡੈਟਾ ਹੈ।।",
         "checkupButton": "ਸੈਲਫ ਚੈੱਕ-ਅਪ।",
