@@ -3,7 +3,11 @@
     <div class="header-section">
       <ion-title class="ion-text-left">Home</ion-title>
       <div class="toogle-left">
-      Eng<ion-toggle (ngModelChange)="setLang()"  [(ngModel)]="AppRef.languageToggle" color="light"></ion-toggle>{{AppRef.content.home[AppRef.currentLang]['hindi']}}
+        <ion-select (ngModelChange)="setLang()"  [(ngModel)]="AppRef.currentLang" interface="popover">
+          <ion-select-option  value="english">English</ion-select-option>
+          <ion-select-option  value="hindi">{{AppRef.content.home[AppRef.currentLang]['hindi']}}</ion-select-option>
+          <ion-select-option value="punjabi">Punjabi</ion-select-option>
+        </ion-select>
     </div>
     </div>
   </ion-toolbar>
