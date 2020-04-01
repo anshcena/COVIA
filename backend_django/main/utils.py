@@ -19,7 +19,7 @@ def get_table_india(link):
     URL = link
     r = requests.get(URL)
     soup = BeautifulSoup(r.content, 'html5lib')
-    table = soup.find('div', attrs = {'class':'content newtab'})
+    table = soup.find('table', attrs = {'class':'table table-striped'})
     output_rows = []
     for table_row in table.findAll('tr'):
         columns = table_row.findAll('th')
@@ -39,8 +39,10 @@ def get_table_india(link):
         output_rows.append(output_row)
     
     for row in output_rows:
-        if len(head) != len(row):
+        if len(row) < 2:
             output_rows.remove(row)
+        if len(row) == 4:
+            output_rows[output_rows.index(row)] = [''] + row 
 
     head = [head]
     head.append(output_rows)
@@ -75,20 +77,20 @@ def get_india_meta_data(link):
     data = []
     URL = link
     r = requests.get(URL) 
-
     soup = BeautifulSoup(r.content, 'html5lib') 
-    table = soup.find('div', attrs = {'class':'information_row'})
-    for table_row in table.findAll('div', attrs = {'class':'iblock'}):
-        data.append({
-           'count': table_row.div.span.text,
-            'text':     table_row.div.div.text,
-            'src': 'https://www.mohfw.gov.in/' + str(table_row.img['src'])
-        })
 
-    for i in data:
-        if '*' in i['text']:
-            data[data.index(i)]['text'] = 'Total active cases'
-    
+    table = soup.find('div', attrs = {'class':'site-stats-count'})
+    # print(table)
+
+    for table_row in table.findAll('li'):
+        # print(table_row.strong.text)
+        if table_row.find('strong'):
+            data.append({
+                    'count': table_row.strong.text,
+                    'text': table_row.span.text,
+                    'src': 'https://www.mohfw.gov.in/' + str(table_row.img['src'])
+                })
+
     # save data in db
     loop = asyncio.new_event_loop()
     result = loop.run_until_complete(save_in_db(IndiaMetaModel,{'meta': data}))
@@ -103,14 +105,14 @@ def get_awareness_links(link):
 
     data=[] # a list to store quotes 
 
-    table = soup.find('div', attrs = {'id':'dvA'})
-    for table_row in table.findAll('tbody'):
-        for row in table_row.findAll('tr'):
-            if row.find('a'):
-                data.append({
-                    'src': row.a['href'],
-                    'title': row.a.text
-                })
+    table = soup.find('div', attrs = {'class':'isotope clearfix'})
+    # print(table)
+    for table_row in table.findAll('div', attrs = {'class':'content-box'}):
+        # print(table_row.figure.a.img['alt'])
+        data.append({
+            'src': 'https://www.mohfw.gov.in/' + table_row.figure.a.img['src'],
+            'title': str(table_row.figure.a.img['alt'])
+        })
 
     hinEngData = {'hindi':[], 'english':[]} 
         

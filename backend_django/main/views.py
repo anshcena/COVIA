@@ -4,6 +4,7 @@ from main.utils import get_who_myths, get_table_india, get_india_meta_data, get_
 import json
 from main.models import SelfCheckUpModel
 from django.views.decorators.csrf import csrf_exempt
+import traceback
 
 
 def home(request):
@@ -35,7 +36,7 @@ def live_india_data(request):
             "data": data
         })
     except Exception as e:
-        print(str(e))
+        print(traceback.print_exc())
         return JsonResponse({
             "status": False
         })
