@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import * as XLSX from 'ts-xlsx';
-// import excelfile from '../../assets/data.xlxs';
 import {HttpClient} from '@angular/common/http';
 import { Papa } from 'ngx-papaparse';
 import { Router } from '@angular/router';
@@ -11,15 +9,16 @@ import { Router } from '@angular/router';
 })
 export class ResourcesPage implements OnInit {
 
-  arrayBuffer:any;
+arrayBuffer:any;
 file:File;
 csvData : any[] = [];
 headerRow : any[] = [];
 
-  constructor(public http : HttpClient,
+  constructor(
+    public http : HttpClient,
     private router: Router,
-              private papa : Papa) { 
-    this.loadCSV();
+    private papa : Papa) { 
+      this.loadCSV();
   }
 
   ngOnInit() {

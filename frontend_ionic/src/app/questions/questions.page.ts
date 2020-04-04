@@ -20,7 +20,13 @@ export class QuestionsPage implements OnInit {
     private utils: UtilityService) { 
   }
 
+  loaded = false;
+
   public AppRef = AppComponent;
+
+  isLoaded() {
+    this.loaded=true;
+  }
 
   ngOnInit() {
    
