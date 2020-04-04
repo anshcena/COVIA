@@ -25,7 +25,11 @@ const routes: Routes = [
   {
     path: 'awareness',
     loadChildren: () => import('./awareness/awareness.module').then( m => m.AwarenessPageModule)
+  },  {
+    path: 'resources',
+    loadChildren: () => import('./resources/resources.module').then( m => m.ResourcesPageModule)
   },
+
 ];
 @NgModule({
   imports: [

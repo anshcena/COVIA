@@ -15,6 +15,11 @@ export class InfoPage implements OnInit {
     "image": "../../assets/icon/awareness.png",
     "color": "#d9e1da",
     "route": '/awareness'
+  },
+  {
+    "image": "../../assets/icon/resources.png",
+    "color": "#d9e1da",
+    "route": '/resources'
   }]
 
   constructor(private router: Router) { }
