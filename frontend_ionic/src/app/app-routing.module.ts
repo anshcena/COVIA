@@ -25,9 +25,14 @@ const routes: Routes = [
   {
     path: 'awareness',
     loadChildren: () => import('./awareness/awareness.module').then( m => m.AwarenessPageModule)
-  },  {
+  },
+  {
     path: 'helpline',
     loadChildren: () => import('./helpline/helpline.module').then( m => m.HelplinePageModule)
+  },
+    {
+    path: 'resources',
+    loadChildren: () => import('./resources/resources.module').then( m => m.ResourcesPageModule)
   },
 
 ];
