@@ -34,3 +34,17 @@
   align-items: center;
   margin-left: auto;
 }
+.covia-card-flex {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+
+}
+@media (max-width:768px) {
+  .covia-card-flex {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+}

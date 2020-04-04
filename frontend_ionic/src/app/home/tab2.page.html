@@ -4,9 +4,9 @@
       <ion-title class="ion-text-left">{{AppRef.content.home[AppRef.currentLang]['home']}}</ion-title>
       <div class="toogle-left">
         <ion-select  [(ngModel)]="AppRef.currentLang" interface="popover">
-          <ion-select-option  value="english">English</ion-select-option>
-          <ion-select-option  value="hindi">Hindi</ion-select-option>
-          <ion-select-option value="punjabi">Punjabi</ion-select-option>
+          <ion-select-option  value="en">English</ion-select-option>
+          <ion-select-option  value="hi">Hindi</ion-select-option>
+          <ion-select-option value="pb">Punjabi</ion-select-option>
         </ion-select>
     </div>
     </div>
@@ -20,7 +20,7 @@
     <h1 class="covia-title">{{AppRef.content.home[AppRef.currentLang]['title']}}</h1>
     <h2 class="covia-subtitle">{{AppRef.content.home[AppRef.currentLang]['subtitle']}}</h2>
   <div class="covia-buttons ion-text-center">
-    <ion-button color="primary" (click)="questionSection()">{{AppRef.content.home[AppRef.currentLang]['checkupButton']}}</ion-button>
+    <ion-button color="primary" (click)="questionSection()" style="display:block;">{{AppRef.content.home[AppRef.currentLang]['checkupButton']}}</ion-button>
     <ion-button color="dark" (click)="br.openLink('https://bing.com/covid')">
       {{AppRef.content.home[AppRef.currentLang]['trackButton']}}
     </ion-button>

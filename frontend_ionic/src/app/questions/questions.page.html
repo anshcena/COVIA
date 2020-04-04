@@ -1,27 +1,20 @@
-<ion-header>
+ <ion-header>
   <ion-toolbar>
   <div class="header-section">
     <ion-icon name="arrow-back" class="back" (click)="home()"></ion-icon>
     <ion-title class="ion-text-left">Self Checkup</ion-title>
     <div class="toogle-left">
-    <ion-select  [(ngModel)]="AppRef.currentLang" interface="popover">
-      <ion-select-option  value="english">English</ion-select-option>
-      <ion-select-option  value="hindi">Hindi</ion-select-option>
-      <ion-select-option value="punjabi">Punjabi</ion-select-option>
+    <ion-select  [(ngModel)]="AppRef.currentLang" interface="popover" >
+      <ion-select-option  value="en">English</ion-select-option>
+      <ion-select-option  value="hi">Hindi</ion-select-option>
+      <ion-select-option value="pb">Punjabi</ion-select-option>
     </ion-select>
   </div>
   </div>
   </ion-toolbar>
 </ion-header>
-
+<!--
 <ion-content>
-    <!-- <div style="margin-top: 62px;">
-      <img src="../../assets/icon/awareness.png" class="image" alt="symbolic image">
-      <h3 class="covia-title">Screening Test for COVID-19</h3>
-      <div class="btn-center">
-      <ion-button style="width: 176px;">Let's Start</ion-button>
-    </div>
-    </div> -->
     <div class="questions-align">
       <ion-card  *ngFor = "let ques of dict, let i=index;" >
         <ion-card-content>
@@ -49,4 +42,9 @@
     </div>
 
 
+</ion-content> -->
+<ion-content>
+  <iframe [src]="sanitizer.bypassSecurityTrustResourceUrl('https://covid.preflet.com/' + AppRef.currentLang + '/test')" scrolling="yes" id="url">
+    <p>Your browser does not support iframes.</p>
+  </iframe> 
 </ion-content>

@@ -4,9 +4,9 @@
       <ion-title class="ion-text-left">{{AppRef.content.care[AppRef.currentLang]['care']}}</ion-title>
       <div class="toogle-left">
         <ion-select  [(ngModel)]="AppRef.currentLang" interface="popover">
-          <ion-select-option  value="english">English</ion-select-option>
-          <ion-select-option  value="hindi">Hindi</ion-select-option>
-          <ion-select-option value="punjabi">Punjabi</ion-select-option>
+          <ion-select-option  value="en">English</ion-select-option>
+          <ion-select-option  value="hi">Hindi</ion-select-option>
+          <ion-select-option value="pb">Punjabi</ion-select-option>
         </ion-select>
     </div>
     </div>
@@ -16,7 +16,18 @@
 <ion-content class="ion-padding">
   <div class="contianer">
   <h1 class="covia-title">{{AppRef.content.care[AppRef.currentLang]['title']}}</h1>
-  <div class="covia-page-background">
+  <div>
+    <ion-segment [(ngModel)]="activated">
+      <ion-segment-button value="sym" (click)="symChange()">
+        <ion-label>{{AppRef.content.care[AppRef.currentLang]['symptom']}}</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="pre" (click)="preChange()">
+        <ion-label>{{AppRef.content.care[AppRef.currentLang]['precaution']}}</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+</div>
+
+  <div class="covia-page-background" id="symptoms">
     <h1 class="covia-title">{{AppRef.content.care[AppRef.currentLang]['symptom']}}</h1>
     <div class="covia-instruction">
       <p class="ion-text-justify covia-subtitle">{{AppRef.content.care[AppRef.currentLang]['symNote']}}</p>
@@ -40,7 +51,7 @@
       
     </div>
   </div>
-  <div class="covia-page-background">
+  <div class="covia-page-background" id="precaution" style="display: none;">
     <h1 class="covia-title">{{AppRef.content.care[AppRef.currentLang]['precaution']}}</h1>
     <div class="covia-instruction">
       <p class="ion-text-justify covia-subtitle">{{AppRef.content.care[AppRef.currentLang]['preNote']}}</p>
@@ -76,7 +87,7 @@
         <li>{{AppRef.content.care[AppRef.currentLang]['prePt3']}}</li>
       </ul>
     </div>
-      <p class="covia-subtitle ion-text-justify">{{AppRef.content.care[AppRef.currentLang]['info']}}</p>
+      <p class="covia-subtitle ion-text-justify" id="info">{{AppRef.content.care[AppRef.currentLang]['info']}}</p>
   </div>
  </div>
 </ion-content>

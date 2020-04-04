@@ -3,6 +3,9 @@ import { AppComponent } from './../app.component';
 import { Router } from '@angular/router';
 import { UtilityService } from '../utility.service';
 import { HttpClient } from '@angular/common/http';
+import { DomSanitizer } from '@angular/platform-browser';
+
+
 @Component({
   selector: 'app-questions',
   templateUrl: './questions.page.html',
@@ -13,8 +16,11 @@ export class QuestionsPage implements OnInit {
   constructor(
     private router: Router,
     private http: HttpClient,
+    public sanitizer: DomSanitizer,
     private utils: UtilityService) { 
   }
+
+  public AppRef = AppComponent;
 
   ngOnInit() {
    
@@ -23,18 +29,7 @@ export class QuestionsPage implements OnInit {
    this.router.navigate(['/tabs']);
   }
 
-
-  public AppRef = AppComponent;
-
-  setLang() {
-    if (AppComponent.languageToggle) {
-      AppComponent.currentLang = 'english';
-    } else {
-      AppComponent.currentLang = 'hindi';
-    }
-  }
-
- dict = [
+  dict = [
   {
     'question':{
     'english': 'PIN Code',

@@ -1,12 +1,12 @@
 <ion-header>
   <ion-toolbar>
     <div class="header-section">
-      <ion-title class="ion-text-left">About</ion-title>
+      <ion-title class="ion-text-left">News</ion-title>
       <div class="toogle-left">
         <ion-select  [(ngModel)]="AppRef.currentLang" interface="popover">
-          <ion-select-option  value="english">English</ion-select-option>
-          <ion-select-option  value="hindi">Hindi</ion-select-option>
-          <ion-select-option value="punjabi">Punjabi</ion-select-option>
+          <ion-select-option  value="en">English</ion-select-option>
+          <ion-select-option  value="hi">Hindi</ion-select-option>
+          <ion-select-option value="pb">Punjabi</ion-select-option>
         </ion-select>
     </div>
     </div>
@@ -15,7 +15,7 @@
 
 <ion-content>
 
-  <h3 class="covia-subtitle">{{AppRef.content.about[AppRef.currentLang]['title']}}<a href="https://who.int" target="_blank" >{{AppRef.content.about[AppRef.currentLang]['who']}}</a> {{AppRef.content.about[AppRef.currentLang]['and']}} <a href="https://www.mohfw.gov.in/" target="_blank" >{{AppRef.content.about[AppRef.currentLang]['mohfw']}}</a> {{AppRef.content.about[AppRef.currentLang]['website']}}</h3>
+  <!-- <h3 class="covia-subtitle">{{AppRef.content.about[AppRef.currentLang]['title']}}<a href="https://who.int" target="_blank" >{{AppRef.content.about[AppRef.currentLang]['who']}}</a> {{AppRef.content.about[AppRef.currentLang]['and']}} <a href="https://www.mohfw.gov.in/" target="_blank" >{{AppRef.content.about[AppRef.currentLang]['mohfw']}}</a> {{AppRef.content.about[AppRef.currentLang]['website']}}</h3>
   <div style="margin-top:42px" class="ion-text-center">
       <h3 class="covia-fetched-info">{{AppRef.content.about[AppRef.currentLang]['symptoms']}}</h3>
       <a  href="https://www.cdc.gov/coronavirus/2019-ncov/symptoms-testing/symptoms.html" target="_blank" class="covia-fetched-links">https://www.cdc.gov/coronavirus/2019-ncov/symptoms-testing/symptoms.html</a>
@@ -29,7 +29,17 @@
         <a href="https://baiosbay.com/" target="_blank" ><img src="../../assets/bb.png" class="collab-image bb" alt="baios-bay"></a> 
         <a href="https://mltool.in/" target="_blank" ><img src="../../assets/mltool.png"  class="collab-image" alt="mlttol"></a>
       </div>
-    </div>
+    </div> 
       <p class="ion-text-center">A <a style="text-decoration: none;" href="https://robomx.tech"  target="_blank" class="robomx">RoboMx&trade;</a> creation.</p>  
- 
+  -->
+
+  <div *ngFor="let card of image" class="covia-news" >
+      <img [src]="card.link" class="news-img">
+  </div>
+
+  <div class="covia-news" *ngIf="image.length == 0">
+    <p  *ngFor="let card of [1,2,3]">
+      <ion-skeleton-text animated style="width: 400px; margin: auto; display: block; height: 400px;"></ion-skeleton-text>
+    </p>
+  </div>
 </ion-content>

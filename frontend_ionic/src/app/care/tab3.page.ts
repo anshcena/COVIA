@@ -7,8 +7,10 @@ import { AppComponent } from './../app.component';
   styleUrls: ['tab3.page.scss']
 })
 export class Tab3Page {
-
-  constructor() {}
+activated: any;
+  constructor() {
+    this.activated = "sym";
+  }
 
   
   public AppRef = AppComponent;
@@ -20,5 +22,18 @@ export class Tab3Page {
       AppComponent.currentLang = 'hindi';
     }
   }
-
+  symChange() {
+    let sym = document.getElementById('symptoms');
+    let pre = document.getElementById('precaution');
+    sym.style.display = "block";
+    pre.style.display = "none";
+  }
+  preChange(){
+     let sym = document.getElementById('symptoms');
+    let pre = document.getElementById('precaution');
+     let info = document.getElementById('info');
+    sym.style.display = "none";
+    pre.style.display = "block";
+     info.style.display = "block";
+  }
 }
