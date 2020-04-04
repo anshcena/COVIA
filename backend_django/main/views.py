@@ -64,12 +64,10 @@ def self_check(request):
         data = {}
         data['zip_code'] = request.POST.get('zip_code', '000000')
         data['zip_lat'], data['zip_lon'] = get_coordinates_from_zipcode(data['zip_code'])
-        data['ip'] = get_client_ip(request)
-        data['request'] = request.META.get('HTTP_USER_AGENT','')
+        data['fingerprint'] = request.POST.get('fingerprint', '')
         data['score'] = float(request.POST.get('score', 0))
         data['result'] = request.POST.get('result', '')
         data['response'] = request.POST.get('response', '')
-        data['age'] = int(request.POST.get('age', 0))
 
         print(data)
         

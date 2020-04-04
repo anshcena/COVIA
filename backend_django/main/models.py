@@ -32,13 +32,9 @@ class AwarenessDataModel(models.Model):
 class SelfCheckUpModel(models.Model):
     zip_lat = models.FloatField(default=0.0)
     zip_lon = models.FloatField(default=0.0)
-    request = models.TextField()
-    ip = models.GenericIPAddressField()
+    fingerprint = models.CharField(max_length=200)
     timestamp = models.DateTimeField(default=timezone.now)
     score = models.FloatField(default=0.0)
     result = models.CharField(max_length=10)
     response = models.TextField()
     zip_code = models.CharField(max_length=6)
-    age = models.IntegerField(default=0)
-    class Meta:
-        unique_together = ('ip', 'age')
