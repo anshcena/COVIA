@@ -20,7 +20,7 @@ const routes: Routes = [
   },
   {
     path: 'about',
-    loadChildren: () => import('./about/about.module').then( m => m.AboutPageModule)
+    loadChildren: () => import('./news/about.module').then( m => m.AboutPageModule)
   },
   {
     path: 'awareness',

@@ -33,9 +33,15 @@
       <p class="ion-text-center">A <a style="text-decoration: none;" href="https://robomx.tech"  target="_blank" class="robomx">RoboMx&trade;</a> creation.</p>  
   -->
 
-  <div *ngFor="let card of image" class="covia-news" >
-      <img [src]="card.link" class="news-img">
-  </div>
+  <ion-card *ngFor="let card of image">
+    <img [src]="card.link"> 
+
+    <ion-card-header [class]="card.source.split(' ')[0]">
+      <ion-card-title class="white"><ion-icon [name]="'logo-' + card.source.split(' ')[0]"></ion-icon>{{card.source.split(' ')[1]}}</ion-card-title>
+      <ion-card-subtitle class="ion-text-right white">uploaded on {{card.timestamp}}</ion-card-subtitle>
+
+    </ion-card-header>
+  </ion-card>
 
   <div class="covia-news" *ngIf="image.length == 0">
     <p  *ngFor="let card of [1,2,3]">

@@ -17,7 +17,7 @@ import { environment } from '../environments/environment';
 import { ModalPage } from './modal/modal.page';
 import { FormsModule } from '@angular/forms';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
-import {PapaParseModule } from 'ngx-papaparse';
+import { PapaParseModule } from 'ngx-papaparse';
 
 @NgModule({
   declarations: [AppComponent, ModalPage],

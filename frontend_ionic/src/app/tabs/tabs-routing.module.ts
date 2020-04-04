@@ -55,7 +55,7 @@ const routes: Routes = [
           {
             path: '',
             loadChildren: () => 
-            import('../about/about.module').then(m => m.AboutPageModule)
+            import('../news/about.module').then(m => m.AboutPageModule)
           }
         ]
       },

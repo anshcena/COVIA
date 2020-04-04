@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { AppComponent } from './../app.component';
+import { AppComponent } from '../app.component';
 import { Component,OnInit } from '@angular/core';
 @Component({
   selector: 'app-about',
@@ -18,6 +18,7 @@ ngOnInit() {
 
   fetchData() {
     this.http.get(AppComponent.phpbase + 'index.php?r=covia%2Fgetupdates').subscribe((res) => {
+      console.log(res)
       if(res['status']) {
         this.image = res['data'];
       }
