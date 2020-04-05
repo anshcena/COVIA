@@ -135,9 +135,12 @@ STATIC_URL = '/static/'
 
 CORS_ORIGIN_WHITELIST = [
     "https://covia.robomx.tech",
+    "https://covid.preflet.com",
     "http://127.0.0.1:8000",
     "http://localhost:8101",
     "http://localhost:8100",
+    "http://localhost:3000",
+    "http://127.0.0.1:3000",
     "http://127.0.0.1:8101",
     "http://127.0.0.1:8100"
 ]

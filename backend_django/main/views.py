@@ -71,22 +71,11 @@ def self_check(request):
 
         print(data)
         
-        try:
-            obj = SelfCheckUpModel.objects.get(ip=data['ip'])
-            obj.result = data['result']
-            obj.score = data['score']
-            obj.response = data['response']
-            obj.save()
-            return JsonResponse({
-                "status": True,
-                "message": "updated"
-            })
-        except SelfCheckUpModel.DoesNotExist:
-            obj = SelfCheckUpModel.objects.create(**data)
-            return JsonResponse({
-                "status": True,
-                "message": "added"
-            })
+        obj = SelfCheckUpModel.objects.create(**data)
+        return JsonResponse({
+            "status": True,
+            "message": "added"
+        })
     return JsonResponse({
         "status": False
     })
