@@ -47,7 +47,7 @@
   <div id="shimmer" *ngIf="!loaded">
         <p style="height: 56px;display: flex;justify-content: center;" *ngFor="let tables of [1,2,3,4,5,6,7,8,9]" ><ion-skeleton-text animated style="width: 80%"></ion-skeleton-text></p>
    </div>
-  <iframe onload="document.getElementById('shimmer').style.display='none'" [src]="sanitizer.bypassSecurityTrustResourceUrl('https://covid.preflet.com/' + AppRef.currentLang + '/test')" scrolling="yes">
+  <iframe onload="document.getElementById('shimmer').style.display='none'" [src]="sanitizer.bypassSecurityTrustResourceUrl('https://covid.preflet.com/' + AppRef.currentLang + '/test?embed=true')" scrolling="yes">
     <p>Your browser does not support iframes.</p>
   </iframe> 
 </ion-content>
