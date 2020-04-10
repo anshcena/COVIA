@@ -2,14 +2,7 @@
   <ion-toolbar>
   <div class="header-section">
     <ion-icon name="arrow-back" class="back" (click)="home()"></ion-icon>
-    <ion-title class="ion-text-left">Self Checkup</ion-title>
-    <div class="toogle-left">
-    <ion-select  [(ngModel)]="AppRef.currentLang" interface="popover" >
-      <ion-select-option  value="en">English</ion-select-option>
-      <ion-select-option  value="hi">Hindi</ion-select-option>
-      <ion-select-option value="pb">Punjabi</ion-select-option>
-    </ion-select>
-  </div>
+    <ion-title class="ion-text-left">{{AppRef.content.home[AppRef.currentLang]['checkupButton']}}</ion-title>
   </div>
   </ion-toolbar>
 </ion-header>
@@ -47,7 +40,7 @@
   <div id="shimmer" *ngIf="!loaded">
         <p style="height: 56px;display: flex;justify-content: center;" *ngFor="let tables of [1,2,3,4,5,6,7,8,9]" ><ion-skeleton-text animated style="width: 80%"></ion-skeleton-text></p>
    </div>
-  <iframe onload="document.getElementById('shimmer').style.display='none'" [src]="sanitizer.bypassSecurityTrustResourceUrl('https://covid.preflet.com/' + AppRef.currentLang + '/test?embed=true')" scrolling="yes">
+  <iframe onload="document.getElementById('shimmer').style.display='none'" [src]="url" scrolling="yes">
     <p>Your browser does not support iframes.</p>
   </iframe> 
 </ion-content>

@@ -18,14 +18,21 @@ export class QuestionsPage implements OnInit {
     private http: HttpClient,
     public sanitizer: DomSanitizer,
     private utils: UtilityService) { 
+      this.url = this.getSantizedURL()
   }
 
   loaded = false;
 
   public AppRef = AppComponent;
 
+  url;
+
   isLoaded() {
     this.loaded=true;
+  }
+
+  getSantizedURL() {
+    return this.sanitizer.bypassSecurityTrustResourceUrl('https://covid.preflet.com/' + AppComponent.currentLang + '/test?embed=true');
   }
 
   ngOnInit() {
