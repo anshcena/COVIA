@@ -32,7 +32,7 @@ export class QuestionsPage implements OnInit {
   }
 
   getSantizedURL() {
-    return this.sanitizer.bypassSecurityTrustResourceUrl('https://covid.preflet.com/' + AppComponent.currentLang + '/test?embed=true');
+    return this.sanitizer.bypassSecurityTrustResourceUrl('https://covid.preflet.com/' + AppComponent.currentLang + '/test?embed=true&code=C01COVIA');
   }
 
   ngOnInit() {
