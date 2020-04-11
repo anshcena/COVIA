@@ -63,8 +63,9 @@ def get_who_myths(link):
     for row in table.findAll('h2'):
         if len(row.text) > 0:
             data['title'].append(row.text)
-    for table_ro in table.findAll('div', attrs = {'class': 'list-view--item highlight-widget--content matching-height--item'}):
-        data['src'].append(table_ro.a['href'])
+    for table_ro in table.findAll('img'):
+        print(table_ro)
+        data['src'].append('https://www.who.int' + table_ro['data-src'])
     for t, s in zip(data['title'], data['src']):
         loop = asyncio.new_event_loop()
         result = loop.run_until_complete(save_in_db(MythsWHOModel, {'title': t, 'src': s}))
