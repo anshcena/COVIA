@@ -54,7 +54,8 @@ export class AppComponent {
         "pp1": "by submitting this form you agree our ",
         "pp2": "",
         "pp": "privacy policy",
-        "submit": "Submit"
+        "submit": "Submit",
+        "collab": "Developed by Thapar Institute in collaboration with ICMR-CIBiod"
   },
       "hi": {
         "home": "डैशबोर्ड",
