@@ -15,10 +15,10 @@
 
 <ion-content>
 
-  <h6 class="source ion-text-center">{{AppRef.content.updates[AppRef.currentLang]['dataSource']}}:<a href="https://www.mohfw.gov.in/" target="_blank">{{AppRef.content.updates[AppRef.currentLang]['mohfw']}}</a></h6>
+  <h6 class="source ion-text-center">{{AppRef.content.updates[AppRef.currentLang]['dataSource']}}: <a href="https://www.mohfw.gov.in/" target="_blank">{{AppRef.content.updates[AppRef.currentLang]['mohfw']}}</a></h6>
 
     <div class="covia-card-flex">
-        <ion-card style="width: 190px;height: 166px;" *ngFor="let card of meta"  >
+        <ion-card style="min-width: 190px;min-height: 166px;" *ngFor="let card of meta"  >
           <ion-card-header>
             <img [src]="card.src" style="width: unset; margin:auto" >
           </ion-card-header>
