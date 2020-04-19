@@ -5,6 +5,7 @@ import json
 from main.models import SelfCheckUpModel
 from django.views.decorators.csrf import csrf_exempt
 import traceback
+from django.core import serializers
 
 
 def home(request):
@@ -40,6 +41,11 @@ def live_india_data(request):
         return JsonResponse({
             "status": False
         })
+
+
+def map(request):
+    data = SelfCheckUpModel.objects.all().values('zip_lat', 'zip_lon', 'result')
+    return JsonResponse({"data": list(data)})
 
 
 @csrf_exempt

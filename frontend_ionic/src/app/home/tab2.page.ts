@@ -1,22 +1,48 @@
 import { AppComponent } from './../app.component';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BrowserService } from '../browser.service';
+import { ToastController } from '@ionic/angular';
 @Component({
   selector: 'app-home',
   templateUrl: 'tab2.page.html',
   styleUrls: ['tab2.page.scss']
 })
-export class Tab2Page {
+export class Tab2Page implements OnInit{
 
   constructor(
     private router: Router,
-    public br: BrowserService
+    public br: BrowserService,
+    public toastController: ToastController
   ) {
 
   }
 
+  async ngOnInit() {
+    
+
+    window['isUpdateAvailable']
+      .then(async(isAvailable) => {
+        if (isAvailable) {
+          const toast = await this.toastController.create({
+            message: 'New Update available! ',
+            position: 'bottom',
+            showCloseButton: true,
+            closeButtonText: "Refresh",
+          });
+          toast.present()
+      
+          const dismiss = await toast.onDidDismiss();
+          if(dismiss.role === 'cancel') {
+            window.location.reload()
+          }
+        }
+      });
+  }
+
   public AppRef = AppComponent;
+
+  
 
   map() {
     this.router.navigate(['/map']);
