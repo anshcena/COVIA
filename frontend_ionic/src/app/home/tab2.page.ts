@@ -18,7 +18,9 @@ export class Tab2Page {
 
   public AppRef = AppComponent;
 
-
+  map() {
+    this.router.navigate(['/map']);
+  }
   questionSection(){
     this.router.navigate(['/questions']);
     

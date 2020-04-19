@@ -41,10 +41,11 @@ export class AppComponent {
     "home": {
       "en": {
         "home": "Home",
+        "map": "Map",
         "title": "COVIA",
         "subtitle":"Corona Virus Alert app containing informative real data of the outburst.",
         "checkupButton": "Self Check-Up",
-        "trackButton": "Track World Cases",
+        "trackButton": "Track Cases",
         "updates" : "Get official updates",
         "on": "on",
         "region": "Indian region updates from",
@@ -60,9 +61,10 @@ export class AppComponent {
       "hi": {
         "home": "डैशबोर्ड",
         "title": "कोविआ",
+        "map": "नक्शा",
         "subtitle": "कोरोना वायरस अलर्ट ऐप जिसमें मुखरता का वास्तविक डेटा है।",
         "checkupButton": "सेल्फ चेक-अप",
-        "trackButton": "विश्व मामलों को ट्रैक करें",
+        "trackButton": "ट्रैक करें",
         "updates": "से आधिकारिक अपडेट प्राप्त करें",
         "on": "पर",
         "region":  "भारतीय क्षेत्र से अद्यतन",
@@ -76,10 +78,11 @@ export class AppComponent {
       },
        "pb": {
         "home": "ਘਰ",
+        "map": "ਨਕਸ਼ਾ",
         "title": "ਕੋਵਿਆ",
         "subtitle": "ਕਰੋਨਾ ਵਾਇਰਸ ਚੁਕੰਨਾ ਐਪ ਜਿਸ ਵਿੱਚ ਵਿਸਫੋਟ ਦਾ ਵਾਸਤਵਿਕ ਡੈਟਾ ਹੈ।।",
         "checkupButton": "ਸੈਲਫ ਚੈੱਕ-ਅਪ।",
-        "trackButton": "ਸੰਸਾਰ ਮਾਮਲਿਆਂ ਨੂੰ ਟ੍ਰੈਕ ਕਰੋ",
+        "trackButton": "ਟ੍ਰੈਕ ਕਰੋ",
         "updates": "ਅਧਿਕਾਰਿਕ ਅਪਡੇਟ ਪ੍ਰਾਪਤ ਕਰੋ",
         "on": "ਤੋਂ",
         "region":  "ਭਾਰਤੀ ਖੇਤਰ ਤੇ ਅਪਡੇਟ",
