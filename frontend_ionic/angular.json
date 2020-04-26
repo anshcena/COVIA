@@ -31,6 +31,8 @@
                 "output": "./svg"
               },
               "src/_redirects",
+              "src/sitemap.xml",
+              "src/robots.txt",
               "src/manifest.webmanifest",
               {
                 "glob": "**/*",
