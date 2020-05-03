@@ -38,6 +38,10 @@ const routes: Routes = [
     path: 'map',
     loadChildren: () => import('./map/map.module').then( m => m.MapPageModule)
   },
+  {
+    path: 'barometer',
+    loadChildren: () => import('./barometer/barometer.module').then( m => m.BarometerPageModule)
+  },
 
 ];
 @NgModule({

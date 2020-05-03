@@ -10,17 +10,16 @@ import { ToastController } from '@ionic/angular';
 })
 export class Tab2Page implements OnInit{
 
+  public AppRef = AppComponent;
+
   constructor(
     private router: Router,
     public br: BrowserService,
     public toastController: ToastController
   ) {
-
   }
 
   async ngOnInit() {
-    
-
     window['isUpdateAvailable']
       .then(async(isAvailable) => {
         if (isAvailable) {
@@ -40,28 +39,15 @@ export class Tab2Page implements OnInit{
       });
   }
 
-  public AppRef = AppComponent;
-
-  
-
   map() {
     this.router.navigate(['/map']);
   }
+
+  barometer() {
+    this.router.navigate(['/barometer']);
+  }
+
   questionSection(){
     this.router.navigate(['/questions']);
-    
-    //  this.geolocation.getCurrentPosition(
-    //   {maximumAge: 1000, timeout: 5000,
-    //   enableHighAccuracy: true }
-    //   ).then((resp) => {
-    //         alert(JSON.stringify( resp.coords));
-
-    //         this.lat=resp.coords.latitude
-    //         this.lng=resp.coords.longitude
-    //         },er=>{
-    //           alert('Can not retrieve Location')
-    //         }).catch((error) => {
-    //         alert('Error getting location - '+JSON.stringify(error))
-    //         });
-        }
+  }
 }

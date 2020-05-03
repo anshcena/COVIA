@@ -42,6 +42,7 @@ export class AppComponent {
       "en": {
         "home": "Home",
         "map": "Map",
+        "barometer": "Social Barometer",
         "title": "COVIA",
         "subtitle":"Corona Virus Alert app containing informative real data of the outburst.",
         "checkupButton": "Self Check-Up",
@@ -62,6 +63,7 @@ export class AppComponent {
         "home": "डैशबोर्ड",
         "title": "कोविआ",
         "map": "नक्शा",
+        "barometer": "सामाजिक बैरोमीटर",
         "subtitle": "कोरोना वायरस अलर्ट ऐप जिसमें मुखरता का वास्तविक डेटा है।",
         "checkupButton": "सेल्फ चेक-अप",
         "trackButton": "ट्रैक करें",
@@ -80,6 +82,7 @@ export class AppComponent {
         "home": "ਘਰ",
         "map": "ਨਕਸ਼ਾ",
         "title": "ਕੋਵਿਆ",
+        "barometer": "ਸੋਸ਼ਲ ਬੈਰੋਮੀਟਰ",
         "subtitle": "ਕਰੋਨਾ ਵਾਇਰਸ ਚੁਕੰਨਾ ਐਪ ਜਿਸ ਵਿੱਚ ਵਿਸਫੋਟ ਦਾ ਵਾਸਤਵਿਕ ਡੈਟਾ ਹੈ।।",
         "checkupButton": "ਸੈਲਫ ਚੈੱਕ-ਅਪ।",
         "trackButton": "ਟ੍ਰੈਕ ਕਰੋ",
