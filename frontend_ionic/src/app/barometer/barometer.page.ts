@@ -13,6 +13,7 @@ export class BarometerPage implements OnInit {
   public AppRef = AppComponent;
 
   url;
+  loaded = false;
 
   constructor(
     private router: Router,
